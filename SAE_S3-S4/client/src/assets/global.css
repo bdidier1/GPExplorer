@@ -1,0 +1,358 @@
+/* reset global et police inter partout */
+
+:root {
+  /* couleurs de surface */
+  --surface-gradient-start: #ffffff;
+  --surface-gradient-end: #f8f8f8;
+  --surface-card: rgba(255, 255, 255, 0.95);
+  --surface-card-strong: #ffffff;
+  --surface-panel: #ffffff;
+  --surface-muted: rgba(0, 0, 0, 0.05);
+  --surface-chip: rgba(231, 45, 85, 0.1);
+
+  /* bordures et ombres */
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.2);
+  --border-accent: rgba(231, 45, 85, 0.4);
+  --card-shadow: rgba(0, 0, 0, 0.15);
+
+  /* textes */
+  --text-strong: #000000;
+  --text-soft: #333333;
+  --text-muted: #666666;
+  --text-invert: #ffffff;
+
+  /* contrôles */
+  --control-bg: rgba(0, 0, 0, 0.05);
+  --control-border: rgba(0, 0, 0, 0.15);
+  --control-text: #000000;
+
+  /* accents */
+  --accent-gradient: linear-gradient(135deg, #E72D55 0%, #c91f45 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #c91f45 0%, #a11c3a 100%);
+  --accent-shadow: rgba(231, 45, 85, 0.3);
+
+  /* états */
+  --warning-bg: rgba(248, 113, 113, 0.15);
+  --warning-border: rgba(248, 113, 113, 0.35);
+  --warning-text: #991b1b;
+  --success-bg: rgba(34, 197, 94, 0.12);
+  --success-text: #15803d;
+
+  /* effets */
+  --skeleton-start: #e4e7f1;
+  --skeleton-mid: #f1f4ff;
+}
+
+:root.dark-mode {
+  --surface-gradient-start: #0a0a0a;
+  --surface-gradient-end: #0a0a0a;
+  --surface-card: rgba(0, 0, 0, 0.9);
+  --surface-card-strong: rgba(0, 0, 0, 0.95);
+  --surface-panel: rgba(0, 0, 0, 0.95);
+  --surface-muted: rgba(231, 45, 85, 0.1);
+  --surface-chip: rgba(231, 45, 85, 0.15);
+
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-accent: rgba(231, 45, 85, 0.5);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+
+  --text-strong: #ffffff;
+  --text-soft: #cccccc;
+  --text-muted: #999999;
+  --text-invert: #000000;
+
+  --control-bg: rgba(231, 45, 85, 0.15);
+  --control-border: rgba(231, 45, 85, 0.4);
+  --control-text: #ffffff;
+
+  --accent-shadow: rgba(231, 45, 85, 0.5);
+
+  --warning-bg: rgba(153, 27, 27, 0.3);
+  --warning-border: rgba(248, 113, 113, 0.45);
+  --warning-text: #fecaca;
+  --success-bg: rgba(74, 222, 128, 0.16);
+  --success-text: #bbf7d0;
+
+  --skeleton-start: #0b1629;
+  --skeleton-mid: #111f36;
+}
+
+/* reset css simple */
+*,
+*::before,
+*::after {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  box-sizing: border-box;
+}
+
+/* application globale */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface-gradient-start);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  line-height: 1.6;
+  color: var(--text-soft);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* application sur tous les textes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'InterDisplay', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+}
+
+p, span, div, a, button, input, textarea, label, li, td, th {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700;
+}
+
+/* éléments de navigation */
+.nav-link, .navbar, .btn {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 800;
+}
+
+/* boutons */
+button, .btn {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 800;
+}
+
+/* formulaires */
+input, textarea, select {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700;
+}
+
+/* petites optimisations typographiques inter */
+* {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-optical-sizing: auto;
+}
+
+/* style du titre principal avec fallback inter */
+.title {
+  font-family: 'InterDisplay', 'Inter', 'Racing Sans One', cursive !important;
+  font-weight: 800 !important;
+  font-size: 4rem;
+  letter-spacing: -0.02em;
+  font-style: italic !important;
+  text-transform: uppercase !important;
+}
+
+/* utilitaires de graisse inter */
+.font-thin { font-weight: 100; }
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 500; }
+.font-medium { font-weight: 600; }
+.font-semibold { font-weight: 700; }
+.font-bold { font-weight: 800; }
+.font-extrabold { font-weight: 800; }
+.font-black { font-weight: 900; }
+
+/* responsive des titres */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem !important;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* mode sombre */
+html.dark-mode {
+  color-scheme: dark;
+}
+
+html.dark-mode body {
+  background-color: var(--surface-gradient-start);
+  color: var(--text-soft);
+}
+
+html.dark-mode .navbar {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #404040;
+}
+
+html.dark-mode .nav-link {
+  color: #e0e0e0 !important;
+}
+
+html.dark-mode .nav-link:hover,
+html.dark-mode .nav-link:focus,
+html.dark-mode .nav-link:active {
+  color: #E72D55 !important;
+}
+
+html.dark-mode .icon-btn {
+  color: #e0e0e0;
+  border-color: #404040;
+}
+
+html.dark-mode .icon-btn:hover {
+  border-color: #E72D55;
+  color: #E72D55;
+}
+
+/* logo en mode sombre */
+html.dark-mode .logo img {
+  filter: brightness(0) invert(1);
+}
+
+html.dark-mode .video-overlay {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+html.dark-mode .timer-section {
+  background: rgba(40, 40, 40, 0.95) !important;
+}
+
+html.dark-mode .title-container {
+  background: #2d2d2d !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark-mode .availability-badge {
+  box-shadow: 0 4px 16px rgba(231, 45, 85, 0.6) !important;
+}
+
+html.dark-mode .cta-button {
+  background: #2d2d2d !important;
+  color: #e0e0e0 !important;
+  border-color: #404040 !important;
+}
+
+html.dark-mode .cta-button:hover {
+  background: #E72D55 !important;
+  color: #0b0c14 !important;
+  border-color: #E72D55 !important;
+}
+
+.main-content,
+.admin-home-content,
+.provider-container,
+.provider-home,
+.editor-container,
+.card,
+.dashboard-grid,
+.map-panel,
+.image-preview,
+.footer-content {
+  min-width: 0;
+}
+
+input, textarea, .title-input, .image-input, .footer-links a, .provider-username, .brand-description {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.action-buttons button,
+.provider-actions .provider-btn,
+.lang-btn,
+.upload-btn,
+.btn-create,
+.btn-save,
+.btn-cancel {
+  white-space: normal;
+}
+
+.provider-item, .card-body, .form-group, .provider-actions, .footer-bottom-content {
+  min-width: 0;
+}
+
+table, pre, code {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+
+/* footer en mode sombre */
+html.dark-mode .footer {
+  background-color: #000000 !important;
+  border-top: 1px solid #404040;
+}
+
+html.dark-mode .gradient-bar {
+  background: linear-gradient(90deg, transparent, #E72D55, transparent) !important;
+}
+
+html.dark-mode .decorative-line {
+  border-top-color: #404040 !important;
+}
+
+html.dark-mode .line-dot {
+  background-color: #E72D55 !important;
+}
+
+html.dark-mode .brand-description {
+  color: #b0b0b0 !important;
+}
+
+html.dark-mode .footer-title {
+  color: #ffffff !important;
+}
+
+html.dark-mode .footer-links a {
+  color: #b0b0b0 !important;
+}
+
+html.dark-mode .footer-links a:hover {
+  color: #E72D55 !important;
+}
+
+html.dark-mode .footer-bottom {
+  border-top-color: #404040 !important;
+}
+
+html.dark-mode .copyright,
+html.dark-mode .brand-name,
+html.dark-mode .payment-text {
+  color: #909090 !important;
+}
+
+html.dark-mode .payment-icon {
+  color: #b0b0b0 !important;
+}
+
+html.dark-mode .circle {
+  background: rgba(231, 45, 85, 0.1) !important;
+}
+
+/* section à propos en mode sombre */
+html.dark-mode #home-about {
+  background-color: #000000 !important;
+}
+
+html.dark-mode .about-text h2 {
+  color: #ffffff !important;
+}
+
+html.dark-mode .about-text p {
+  color: #e0e0e0 !important;
+}
+
+html.dark-mode .about-text p strong {
+  color: #E72D55 !important;
+}
+
+html.dark-mode .about-image img {
+  box-shadow: 0 8px 32px rgba(231, 45, 85, 0.3) !important;
+}
+
+html.dark-mode .footer-logo {
+  filter: brightness(0) invert(1);
+}

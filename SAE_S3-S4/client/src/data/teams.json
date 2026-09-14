@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "name": "Igraal",
+    "description": "teams.descriptions.igraal",
+    "logo": "/logos/igraal.png",
+    "color": "#FF6F00",
+    "drivers": [
+      {
+        "number": 3,
+        "name": "Seb",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 8,
+        "name": "Sofyan",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Alpine",
+    "description": "teams.descriptions.alpine",
+    "logo": "/logos/Alpine.png",
+    "color": "#00CFFF",
+    "drivers": [
+      {
+        "number": 6,
+        "name": "Manon Lanza",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 15,
+        "name": "Djilsi",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "MWII Racing Team",
+    "description": "teams.descriptions.mwii",
+    "logo": "/logos/MWII.jpg",
+    "color": "#43A047",
+    "drivers": [
+      {
+        "number": 7,
+        "name": "Gotaga",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 14,
+        "name": "Squeezie",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "NordVPN",
+    "description": "teams.descriptions.nordvpn",
+    "logo": "/logos/NordVPN_logo.png",
+    "color": "#00E5FF",
+    "drivers": [
+      {
+        "number": 10,
+        "name": "Pierre Chabrier",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 16,
+        "name": "Sylvain Levy",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Black Adam",
+    "description": "teams.descriptions.paris",
+    "logo": "/logos/BlackAdam.png",
+    "color": "#FF1744",
+    "drivers": [
+      {
+        "number": 11,
+        "name": "Bibi",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 24,
+        "name": "Prime",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Cupra Team Pax",
+    "description": "teams.descriptions.barcelona",
+    "logo": "/logos/cupra.png",
+    "color": "#8D5524",
+    "drivers": [
+      {
+        "number": 12,
+        "name": "Domingo",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 21,
+        "name": "Xari",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Fruitz",
+    "description": "teams.descriptions.paris",
+    "logo": "/logos/fruitz.png",
+    "color": "#8E24AA",
+    "drivers": [
+      {
+        "number": 13,
+        "name": "Deujna",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 31,
+        "name": "Dobby",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Rhinoshield",
+    "description": "teams.descriptions.paris",
+    "logo": "/logos/logo-rhinoshield.png",
+    "color": "#FFD600",
+    "drivers": [
+      {
+        "number": 26,
+        "name": "TheoBabac",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 29,
+        "name": "Joyca",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "PUBG Mobile",
+    "description": "teams.descriptions.gaming",
+    "logo": "/logos/PUBG.png",
+    "color": "#8BC34A",
+    "drivers": [
+      {
+        "number": 27,
+        "name": "Kaatsup",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 94,
+        "name": "LeBouseuh",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Oscaro",
+    "description": "teams.descriptions.paris",
+    "logo": "/logos/oscaro.jpg",
+    "color": "#FF4081",
+    "drivers": [
+      {
+        "number": 30,
+        "name": "Valouzz",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 64,
+        "name": "Depielo",
+        "country": "🇫🇷"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "World of Tanks",
+    "description": "teams.descriptions.gaming",
+    "logo": "/logos/world-of-tanks.jpg",
+    "color": "#00B0FF",
+    "drivers": [
+      {
+        "number": 49,
+        "name": "Amixem",
+        "country": "🇫🇷"
+      },
+      {
+        "number": 99,
+        "name": "Étienne Moustache",
+        "country": "🇫🇷"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1531 @@
+{
+    "common": {
+        "loading": "Cargando...",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "close": "Cerrar",
+        "back": "Volver"
+    },
+    "errors": {
+        "network_error": "Error de red",
+        "network_shop_error": "Error de red, no se pueden recuperar los datos de la tienda"
+    },
+    "auth": {
+        "login": {
+            "title": "Iniciar sesión",
+            "subtitle": "Accede a tu cuenta GP Explorer",
+            "close_aria": "Cerrar ventana de inicio de sesión",
+            "email_label": "Usuario o Correo electrónico",
+            "email_placeholder": "usuario o tu@email.com",
+            "password_label": "Contraseña",
+            "password_placeholder": "••••••••",
+            "forgot_password": "¿Olvidaste tu contraseña?",
+            "submit": "Iniciar sesión",
+            "signup_btn": "Registrarse",
+            "show_password": "Mostrar contraseña",
+            "hide_password": "Ocultar contraseña"
+        },
+        "register": {
+            "title": "Registro",
+            "subtitle": "Crear una cuenta GP Explorer",
+            "close_aria": "Cerrar ventana de registro",
+            "first_name_label": "Nombre *",
+            "first_name_placeholder": "Tu nombre",
+            "last_name_label": "Apellido *",
+            "last_name_placeholder": "Tu apellido",
+            "username_label": "Nombre de usuario *",
+            "username_placeholder": "Nombre de usuario",
+            "email_label": "Correo electrónico *",
+            "email_placeholder": "tu@email.com",
+            "phone_label": "Teléfono",
+            "phone_placeholder": "+33 6 12 34 56 78",
+            "password_label": "Contraseña *",
+            "confirm_password_label": "Confirmar contraseña *",
+            "submit": "Crear mi cuenta",
+            "login_link": "¿Ya tienes cuenta? Iniciar sesión",
+            "success": "¡Cuenta creada con éxito! Ahora puedes iniciar sesión.",
+            "error_generic": "Se produjo un error al crear la cuenta"
+        },
+        "errors": {
+            "invalid_credentials": "Correo/usuario o contraseña incorrectos",
+            "login_error": "Ocurrió un error durante el inicio de sesión",
+            "user_exists": "Ya existe una cuenta con este correo o usuario",
+            "register_error": "Ocurrió un error al crear la cuenta",
+            "default_login_error": "Error de inicio de sesión",
+            "default_register_error": "Error de registro"
+        },
+        "validation": {
+            "firstname_length": "El nombre debe tener al menos 2 caracteres",
+            "lastname_length": "El apellido debe tener al menos 2 caracteres",
+            "username_length": "El usuario debe tener al menos 3 caracteres",
+            "email_invalid": "Por favor ingrese un correo válido",
+            "password_length": "La contraseña debe tener al menos 6 caracteres",
+            "password_mismatch": "Las contraseñas no coinciden"
+        },
+        "success": {
+            "account_created": "Cuenta creada con éxito"
+        },
+        "oauth": {
+            "or_divider": "o",
+            "google_btn": "Iniciar sesión con Google",
+            "discord_btn": "Iniciar sesión con Discord",
+            "loading": "Iniciando sesión...",
+            "error_title": "Error de inicio de sesión",
+            "back_home": "Volver al inicio",
+            "errors": {
+                "default": "Ocurrió un error durante el inicio de sesión OAuth",
+                "no_token": "No se recibió token del servidor",
+                "auth_failed": "La autenticación falló",
+                "access_denied": "Acceso denegado por el proveedor"
+            }
+        }
+    },
+    "provider_invitation": {
+        "title": "Configuración de contraseña",
+        "subtitle": "Bienvenido proveedor. Define tu contraseña para activar tu cuenta.",
+        "password_label": "Nueva contraseña",
+        "password_placeholder": "Mínimo 6 caracteres",
+        "confirm_password_label": "Confirmar contraseña",
+        "confirm_password_placeholder": "Vuelve a escribir la contraseña",
+        "submit": "Guardar mi contraseña",
+        "saving": "Guardando...",
+        "success": "Contraseña configurada con éxito. Ya puedes iniciar sesión.",
+        "back_home": "Volver al inicio",
+        "errors": {
+            "token_missing": "Enlace de invitación inválido: falta el token.",
+            "password_too_short": "La contraseña debe tener al menos 6 caracteres.",
+            "password_mismatch": "Las contraseñas no coinciden.",
+            "generic": "No se pudo configurar la contraseña."
+        }
+    },
+    "cart": {
+        "header_title": "Mi Carrito",
+        "timer": {
+            "label": "Reserva activa",
+            "expires_in": "Expira en",
+            "seconds": "segundos"
+        },
+        "empty": {
+            "title": "Tu carrito está vacío",
+            "subtitle": "Añade entradas desde la taquilla",
+            "cta": "Ver entradas disponibles"
+        },
+        "summary": {
+            "title": "Resumen",
+            "ticket_count": "Número de entradas",
+            "item_types": "Total de artículos",
+            "type_suffix": "tipo(s)",
+            "total": "Total"
+        },
+        "actions": {
+            "reserve": "Reservar ahora",
+            "reserve_busy": "Reservando...",
+            "cancel": "Cancelar reserva",
+            "clear": "Vaciar carrito",
+            "remove_tooltip": "Quitar del carrito",
+            "increase": "Aumentar cantidad",
+            "decrease": "Disminuir cantidad"
+        },
+        "email": {
+            "label": "Email para recibir entradas",
+            "placeholder": "tu.email@example.com",
+            "send": "Enviar entradas por email",
+            "sending": "Enviando...",
+            "error_empty": "Por favor ingrese una dirección de correo electrónico",
+            "error_send": "Error al enviar el correo",
+            "success": "¡Correo enviado con éxito a {email}!",
+            "success_shop": "¡Correo de pedido enviado con éxito a {email}!"
+        },
+        "gift": {
+            "label": "Es un regalo",
+            "email_label": "Email del destinatario",
+            "email_placeholder": "email.destinatario@example.com",
+            "error_empty": "Por favor ingrese el email del destinatario",
+            "success": "¡Regalo enviado con éxito a {email}!"
+        },
+        "errors": {
+            "login_required": "Por favor inicie sesión para ordenar"
+        }
+    },
+    "shop": {
+        "title": "TIENDA GP EXPLORER",
+        "subtitle": "Descubre nuestros productos oficiales y merchandising de los equipos",
+        "loading": "Cargando productos...",
+        "filters": {
+            "search_label": "Buscar:",
+            "search_placeholder": "Buscar un producto...",
+            "price_label": "Precio máximo: {price}€",
+            "min_placeholder": "Min",
+            "max_placeholder": "Max",
+            "category_label": "Categoría:",
+            "all": "Todo",
+            "event": "GP Explorer",
+            "teams": "Equipos",
+            "team_label": "Equipo:",
+            "reset_btn": "Restablecer filtros"
+        },
+        "product": {
+            "stock_label": "Stock: {stock}",
+            "add_to_cart": "Añadir al carrito",
+            "out_of_stock": "Agotado"
+        },
+        "no_products": "No se encontraron productos con estos filtros",
+        "types": {
+            "tshirt": "Camiseta",
+            "hoodie": "Sudadera",
+            "casquette": "Gorra",
+            "poster": "Póster",
+            "maillot": "Camiseta Oficial",
+            "drapeau": "Bandera"
+        },
+        "products": {
+            "event_ts_noir": "Camiseta GP Explorer Negra",
+            "event_ts_blanc": "Camiseta GP Explorer Blanca",
+            "event_hoodie_noir": "Sudadera GP Explorer Negra",
+            "event_casquette_noir": "Gorra GP Explorer Negra",
+            "event_poster_a2": "Póster GP Explorer",
+            "ig_maillot": "Camiseta Oficial Igraal",
+            "ig_drapeau": "Bandera Igraal",
+            "al_maillot": "Camiseta Oficial Alpine",
+            "al_drapeau": "Bandera Alpine",
+            "mw_maillot": "Camiseta Oficial MwII Racing Team",
+            "mw_drapeau": "Bandera MwII Racing Team",
+            "no_maillot": "Camiseta Oficial NordVPN",
+            "no_drapeau": "Bandera NordVPN",
+            "ba_maillot": "Camiseta Oficial Black Adam",
+            "ba_drapeau": "Bandera Black Adam",
+            "cu_maillot": "Camiseta Oficial Cupra Team Pax",
+            "cu_drapeau": "Bandera Cupra Team Pax",
+            "fr_maillot": "Camiseta Oficial Fruitz",
+            "fr_drapeau": "Bandera Fruitz",
+            "rh_maillot": "Camiseta Oficial Rhinoshield",
+            "rh_drapeau": "Bandera Rhinoshield"
+        }
+    },
+    "guestbook": {
+        "title": "Opiniones sobre {provider}",
+        "disabled_msg": "El libro de visitas está actualmente desactivado por el organizador.",
+        "notice_disabled": "El libro de visitas está desactivado. Contacte a un organizador para activarlo.",
+        "notice_login": "Inicia sesión para dejar una opinión.",
+        "notice_provider": "Como proveedor, puedes ver opiniones pero no añadirlas.",
+        "notice_already_posted": "Ya has publicado una opinión. Puedes editarla o eliminarla.",
+        "label_rating": "Tu valoración",
+        "aria_choose_rating": "Elegir valoración",
+        "label_message": "Tu opinión",
+        "placeholder_message": "Comparte tu experiencia sobre {provider}",
+        "btn_submit": "Publicar mi opinión",
+        "btn_update": "Actualizar mi opinión",
+        "btn_cancel": "Cancelar",
+        "single_entry_notice": "Una opinión por cuenta. Puedes editar o eliminar tu mensaje abajo.",
+        "list_title": "Últimas opiniones",
+        "list_count": "{count} opiniones",
+        "list_empty": "No hay opiniones todavía.",
+        "your_review": "Tu opinión",
+        "btn_edit": "Editar",
+        "btn_delete": "Eliminar",
+        "feedback_disabled": "Libro de visitas desactivado.",
+        "feedback_provider": "No puedes publicar esta opinión.",
+        "feedback_required": "Valoración y mensaje requeridos.",
+        "feedback_duplicate": "Ya has dejado una opinión. Edítala abajo.",
+        "feedback_error": "Imposible guardar esta opinión.",
+        "feedback_updated": "Opinión actualizada.",
+        "feedback_published": "Opinión publicada. ¡Gracias!",
+        "feedback_delete_error": "Imposible eliminar",
+        "feedback_deleted": "Opinión eliminada."
+    },
+    "private_contact": {
+        "title": "Contactar a {provider}",
+        "subtitle": "Enviar un mensaje privado al proveedor",
+        "notice_login": "Inicia sesión para enviar un mensaje al proveedor.",
+        "messages_title": "Tus mensajes recibidos",
+        "messages_count": "{count} mensaje(s)",
+        "messages_unread": "{count} no leído(s)",
+        "empty_messages": "Ningún mensaje recibido por el momento.",
+        "badge_new": "Nuevo",
+        "btn_mark_read": "Marcar como leído",
+        "btn_delete": "Eliminar",
+        "label_message": "Tu mensaje",
+        "placeholder_message": "Describe tu solicitud a {provider}",
+        "label_name": "Tu nombre:",
+        "label_email": "Tu email:",
+        "btn_send": "Enviar mensaje",
+        "feedback_empty": "Por favor escribe un mensaje",
+        "feedback_success": "¡Mensaje enviado con éxito!",
+        "feedback_error": "Error al enviar el mensaje",
+        "confirm_delete": "¿Realmente quieres eliminar este mensaje?",
+        "time_just_now": "Ahora mismo",
+        "time_min_ago": "Hace {min} min",
+        "time_hour_ago": "Hace {hour}h",
+        "time_day_ago": "Hace {day}d"
+    },
+    "provider_defaults": {
+        "gaming": {
+            "title1": "Simulación de Carreras",
+            "desc1": "Experiencia inmersiva de simulación",
+            "title2": "Equipo Profesional",
+            "desc2": "Material profesional de simulación",
+            "title3": "Animación",
+            "desc3": "Animación y entrenamiento profesional"
+        },
+        "beverages": {
+            "title1": "Bebidas Premium",
+            "desc1": "Selección de bebidas de calidad",
+            "title2": "Servicio Continuo",
+            "desc2": "Disponible durante todo el evento",
+            "title3": "Productos Frescos",
+            "desc3": "Bebidas frescas y naturales"
+        },
+        "food": {
+            "title1": "Comida Rápida",
+            "desc1": "Servicio rápido y eficiente",
+            "title2": "Ingredientes Frescos",
+            "desc2": "Ingredientes de calidad y frescos",
+            "title3": "Servicio Continuo",
+            "desc3": "Disponible durante todo el evento"
+        },
+        "karting": {
+            "title1": "Pista Profesional",
+            "desc1": "Circuito de karting profesional",
+            "title2": "Karts de Alto Rendimiento",
+            "desc2": "Vehículos de carrera de alto rendimiento",
+            "title3": "Máxima Seguridad",
+            "desc3": "Equipos de seguridad conformes"
+        },
+        "camping": {
+            "title1": "Equipamiento Confort",
+            "desc1": "Tiendas y equipo de calidad",
+            "title2": "Material Premium",
+            "desc2": "Equipamiento exterior de gama alta",
+            "title3": "Servicio 24/7",
+            "desc3": "Asistencia disponible día y noche"
+        },
+        "music": {
+            "title1": "Entretenimiento Musical",
+            "desc1": "Ambiente musical profesional",
+            "title2": "Sistema de Audio",
+            "desc2": "Equipo de audio de calidad",
+            "title3": "Playlist Personalizada",
+            "desc3": "Selección musical adaptada al evento"
+        },
+        "default": {
+            "title1": "Servicio Premium",
+            "desc1": "Servicios de calidad profesional",
+            "title2": "Experiencia Reconocida",
+            "desc2": "Equipo de expertos cualificados",
+            "title3": "Soluciones a Medida",
+            "desc3": "Ofertas personalizadas según tus necesidades"
+        },
+        "official_partner": "Socio Oficial"
+    },
+    "faq": {
+        "title": "FAQ - Preguntas frecuentes",
+        "camping": {
+            "title": "Camping y Alojamiento",
+            "text": "Hay una zona de camping oficial disponible cerca del circuito. Las parcelas se reservan por separado a través de la taquilla. Habrá servicios (aseos, duchas de pago, seguridad 24/7). Las tiendas y el equipo deben cumplir las reglas de seguridad del evento."
+        },
+        "items": [
+            {
+                "q": "¿Cuándo y dónde es el evento?",
+                "a": "GP Explorer se celebra del <strong>8 al 10 de octubre de 2026</strong> en el Circuito Bugatti, Le Mans."
+            },
+            {
+                "q": "¿Dónde comprar entradas?",
+                "a": "Las entradas están disponibles en la página de <strong>Entradas</strong>. Plazas limitadas — reserva con antelación."
+            },
+            {
+                "q": "¿Hay aparcamiento en el recinto?",
+                "a": "Sí, hay aparcamientos oficiales con servicios de lanzadera hasta el recinto."
+            },
+            {
+                "q": "¿Es accesible el evento para personas con movilidad reducida?",
+                "a": "Sí — se ofrecen zonas y servicios accesibles. Contacta a través de la página de Contacto para más información."
+            },
+            {
+                "q": "¿Qué puedo llevar?",
+                "a": "Consulta las normas del evento para la lista de objetos permitidos y prohibidos. Se aplican normas de seguridad estrictas."
+            }
+        ]
+    },
+    "footer": {
+        "description": "Descubre GP Explorer como nunca antes, y vive cada momento más cerca de la acción.",
+        "nav_title": "Navegación",
+        "services_title": "Servicios",
+        "info_title": "Información",
+        "links": {
+            "home": "Inicio",
+            "shop": "Tienda",
+            "teams": "Escuderías",
+            "tickets": "Entradas",
+            "map": "Mapa",
+            "vendors": "Patrocinadores & Proveedores",
+            "contact": "Contacto",
+            "support": "Atención al Cliente",
+            "faq": "Preguntas Frecuentes",
+            "legal": "Aviso Legal",
+            "terms": "Términos y Condiciones",
+            "sitemap": "Mapa del sitio"
+        },
+        "made_by": "Realizado por Lafay Mehdi, Lorenzini Thomas, Didier Baptiste, Duarte Antoine, Beley Gautier",
+        "secure_payment": "Pago Seguro"
+    },
+    "services_view": {
+        "title": "NUESTROS SOCIOS OFICIALES",
+        "subtitle": "SERVICIOS OFRECIDOS POR NUESTROS PROVEEDORES",
+        "description": "Descubre todos los servicios y prestaciones ofrecidos por nuestros socios oficiales para enriquecer tu experiencia GP Explorer."
+    },
+    "ticketing": {
+        "title": "Taquilla Oficial",
+        "locked": "Reserva bloqueada:",
+        "access_limited": "Acceso Limitado",
+        "access_limited_msg": "Las cuentas de administrador y proveedor no pueden reservar entradas.",
+        "empty": "No hay entradas disponibles en este momento.",
+        "add": "Añadir",
+        "remove": "Quitar",
+        "available_short": "disp.",
+        "sold_out": "Agotado",
+        "view_offers": "Ver entradas",
+        "segment_empty": "No hay ofertas para esta selección.",
+        "redirect_hint": "Elige una experiencia para abrir su página de entradas dinámica.",
+        "filters": {
+            "date_label": "Fecha",
+            "all_dates": "Todas",
+            "price_label": "Precio",
+            "reset_btn": "Restablecer"
+        },
+        "categories": {
+            "general": "Acceso Festival",
+            "tribune": "Tribuna / Reservado",
+            "vip": "VIP",
+            "karting": "Sesiones de Karting",
+            "simulation": "Simulación Playseat",
+            "drink": "Bebidas",
+            "burger": "Restauración Burgouzz",
+            "rental": "Camping y logística",
+            "cashless": "Cashless"
+        },
+        "variants": {
+            "day": "Día",
+            "weekend": "Fin de semana",
+            "week": "Semana",
+            "event": "Evento",
+            "session": "Sesión",
+            "session_long": "Endurance",
+            "family": "Familiar",
+            "experience": "Experiencia",
+            "combo": "Combo",
+            "pack": "Pack",
+            "location": "Alquiler",
+            "credit": "Crédito cashless"
+        },
+        "segments": {
+            "grand_prix": {
+                "title": "Pases Festival 8-10 oct 2026",
+                "description": "Pases de 1, 2 o 3 días para todas las zonas y animaciones.",
+                "badge": "Festival",
+                "summary": "Pases y tribunas"
+            },
+            "concert": {
+                "title": "Conciertos nocturnos",
+                "description": "Zona césped, Golden Circle o Carré Prestige para cada fecha.",
+                "badge": "Live",
+                "summary": "Concierto"
+            },
+            "karting": {
+                "title": "Sesiones de Karting",
+                "description": "Cronos 12 min, endurance 40 min y junior por día.",
+                "badge": "Pista",
+                "summary": "Karting"
+            },
+            "playseat": {
+                "title": "Simuladores Playseat",
+                "description": "Clasificatorias o relevo 60 min cada día en simuladores oficiales.",
+                "badge": "Sim Racing",
+                "summary": "Playseat"
+            },
+            "food": {
+                "title": "Burgouzz Dining",
+                "description": "Menús fast track y brunch fechados para evitar esperas.",
+                "badge": "Food",
+                "summary": "Burgers"
+            },
+            "beverage": {
+                "title": "Bebidas y refill",
+                "description": "Packs degustación y refill 4h cada día.",
+                "badge": "Bar",
+                "summary": "Bebidas"
+            },
+            "decathlon": {
+                "title": "Camping y logística",
+                "description": "Kits de camping, casilleros diarios y plazas de caravana.",
+                "badge": "Logística",
+                "summary": "Camping"
+            },
+            "cashless": {
+                "title": "Cashless recargado",
+                "description": "Pulseras y créditos para pagar en todo el recinto.",
+                "badge": "Cashless",
+                "summary": "Pago"
+            }
+        },
+        "short_categories": {
+            "general": "GEN",
+            "tribune": "TRIB",
+            "vip": "VIP",
+            "karting": "KART",
+            "simulation": "SIM",
+            "drink": "BAR",
+            "burger": "FOOD",
+            "rental": "RENT",
+            "cashless": "CASH"
+        }
+    },
+    "partners": {
+        "title": "NUESTROS SOCIOS OFICIALES",
+        "subtitle": "HACEN POSIBLE EL EVENTO",
+        "intro": "Descubre las empresas y marcas que apoyan al GP Explorer.",
+        "search_placeholder": "Buscar por nombre...",
+        "all_categories": "Todas las categorías",
+        "clear_search": "Borrar",
+        "results_found": "resultado(s)",
+        "no_results": "No se encontraron socios.",
+        "categories": {
+            "organizer": "Organizador",
+            "gaming": "Gaming y Sim",
+            "beverages": "Bebidas",
+            "karting": "Karting",
+            "camping": "Camping",
+            "food": "Restauración",
+            "music": "Música",
+            "merch": "Tienda"
+        }
+    },
+    "provider": {
+        "sidebar": {
+            "title": "Panel de control",
+            "dashboard": "Panel de control",
+            "statistics": "Estadísticas",
+            "products": "Productos",
+            "add_product": "Añadir producto",
+            "account": "Panel de control",
+            "map": "Ubicación del Circuito"
+        },
+        "account": {
+            "title": "Mi cuenta de proveedor",
+            "subtitle": "Modifica tus datos personales y los accesos de tu stand.",
+            "sections": {
+                "profile": "Información de la cuenta",
+                "security": "Seguridad"
+            },
+            "save_btn": "Guardar mis cambios",
+            "saving_btn": "Guardando..."
+        },
+        "dashboard": {
+            "mode_management": "Modo Gestión",
+            "edit_mode": "Modo Edición",
+            "preview_mode": "Modo Vista Previa",
+            "manage_location": "Gestionar mi ubicación",
+            "official_partner": "Socio Oficial",
+            "about": "Sobre {name}",
+            "our_services": "Nuestros Servicios",
+            "opening_hours": "Horario de apertura",
+            "fresh_ingredients": "Ingredientes frescos",
+            "continuous_service": "Servicio continuo",
+            "satisfied_clients": "Clientes satisfechos"
+        },
+        "stats": {
+            "title": "Mis estadísticas",
+            "subtitle": "Consultas de tu página de proveedor",
+            "total_visits": "Visitas totales",
+            "today_visits": "Visitas hoy",
+            "week_visits": "Visitas esta semana",
+            "total_products_sold": "Productos vendidos (total)",
+            "total_revenue": "Ingresos de tienda (total)",
+            "week_products_sold": "Productos vendidos (7 días)",
+            "week_revenue": "Ingresos de tienda (7 días)",
+            "visits_chart_title": "Visitas en 7 días",
+            "sales_chart_title": "Ventas de tienda en 7 días",
+            "range_filter_label": "Periodo",
+            "range_7d": "7 días",
+            "range_15d": "15 días",
+            "range_30d": "1 mes",
+            "top_providers": "Proveedores más visitados",
+            "back_btn": "Volver a mi página"
+        },
+        "editor": {
+            "title": "Editor de página",
+            "visual_identity": "Identidad Visual",
+            "logos": "Logotipos",
+            "normal_logo": "Normal",
+            "dark_mode_logo": "Modo Oscuro",
+            "same_logo": "Usar el mismo logo para ambos temas",
+            "text_content": "Contenido Textual",
+            "page_title": "Título de la página",
+            "title_desc": "Descripción del título",
+            "services_subtitle": "Subtítulo de servicios",
+            "about_desc": "Descripción Sobre nosotros",
+            "services": "Servicios",
+            "add_service": "Añadir servicio",
+            "service_name_placeholder": "Nombre del servicio",
+            "service_desc_placeholder": "Descripción del servicio",
+            "service_url_label": "Enlace del servicio",
+            "service_url_placeholder": "https://ejemplo.com o /providers/mi-stand",
+            "service_active_label": "Servicio activo",
+            "service_visibility": "Visibilidad del servicio",
+            "visibility_public": "Visible para el público",
+            "visibility_private": "Solo prestador",
+            "service_private_badge": "Servicio interno",
+            "enter_title": "Introduce el título",
+            "enter_desc": "Introduce la descripción",
+            "enter_subtitle": "Introduce el subtítulo",
+            "highlights": "Cifras clave",
+            "highlight_number_placeholder": "Ej: 100%, 24/7, 500+",
+            "highlight_text_placeholder": "Ej: Clientes satisfechos",
+            "add_highlight": "Añadir cifra clave",
+            "schedule": "Horarios de apertura",
+            "schedule_day_placeholder": "Ej: Viernes",
+            "schedule_hours_placeholder": "Ej: 10:00 - 22:00",
+            "add_schedule": "Añadir un horario"
+        },
+        "defaults": {
+            "page_title": "Proveedor",
+            "title_desc": "Servicios de calidad para tu experiencia GP Explorer",
+            "services_subtitle": "Una oferta adaptada al evento",
+            "about_desc": "Nuestro equipo se compromete a ofrecer una experiencia excepcional que complementa perfectamente el ambiente deportivo del evento."
+        },
+        "services": {
+            "gaming": {
+                "sim_racing": {
+                    "title": "Simulación de Carreras",
+                    "desc": "Experiencia de simulación de carreras inmersiva"
+                },
+                "pro_gear": {
+                    "title": "Equipo Profesional",
+                    "desc": "Material profesional de simulación"
+                },
+                "animation": {
+                    "title": "Animación",
+                    "desc": "Animación y supervisión profesional"
+                }
+            },
+            "beverages": {
+                "premium": {
+                    "title": "Bebidas Premium",
+                    "desc": "Selección de bebidas de calidad"
+                },
+                "continuous": {
+                    "title": "Servicio Continuo",
+                    "desc": "Servicio disponible durante todo el evento"
+                },
+                "fresh": {
+                    "title": "Productos Frescos",
+                    "desc": "Bebidas frescas y naturales"
+                }
+            },
+            "food": {
+                "fast_food": {
+                    "title": "Comida Rápida",
+                    "desc": "Servicio de restauración adaptado al evento"
+                },
+                "fresh_products": {
+                    "title": "Productos Frescos",
+                    "desc": "Ingredientes frescos y de calidad"
+                },
+                "continuous": {
+                    "title": "Servicio Continuo",
+                    "desc": "Disponible durante todo el evento"
+                }
+            },
+            "karting": {
+                "track": {
+                    "title": "Pista Profesional",
+                    "desc": "Circuito de karting profesional"
+                },
+                "karts": {
+                    "title": "Karts de Alto Rendimiento",
+                    "desc": "Vehículos de carrera de alto rendimiento"
+                },
+                "safety": {
+                    "title": "Seguridad Máxima",
+                    "desc": "Equipamiento de seguridad conforme"
+                }
+            },
+            "camping": {
+                "comfort": {
+                    "title": "Alojamiento Confort",
+                    "desc": "Soluciones de alojamiento adaptadas"
+                },
+                "equipment": {
+                    "title": "Equipamiento Completo",
+                    "desc": "Todo lo necesario para tu estancia"
+                },
+                "service_247": {
+                    "title": "Servicio 24/7",
+                    "desc": "Asistencia disponible en todo momento"
+                }
+            },
+            "music": {
+                "animation": {
+                    "title": "Animación Musical",
+                    "desc": "Ambiente musical para el evento"
+                },
+                "sound_system": {
+                    "title": "Sistema de Sonido Pro",
+                    "desc": "Sistema de audio profesional"
+                },
+                "playlist": {
+                    "title": "Playlist Personalizada",
+                    "desc": "Música adaptada al ambiente de carrera"
+                }
+            },
+            "default": {
+                "premium": {
+                    "title": "Servicio Premium",
+                    "desc": "Un servicio de calidad adaptado a tus necesidades"
+                },
+                "expert": {
+                    "title": "Soporte Experto",
+                    "desc": "Un equipo de expertos a tu disposición"
+                },
+                "custom": {
+                    "title": "Soluciones Personalizadas",
+                    "desc": "Soluciones adaptadas a tu evento"
+                }
+            },
+            "guestbook": {
+                "title": "Libro de visitas",
+                "desc": "Deja tu opinión y consulta los mensajes"
+            },
+            "private_contact": {
+                "title": "Contacto privado",
+                "desc": "Envia un mensaje privado al proveedor"
+            }
+        },
+        "days": {
+            "friday": "Viernes",
+            "saturday": "Sábado",
+            "sunday": "Domingo"
+        }
+    },
+    "nav": {
+        "dashboard": "Panel de control",
+        "logout": "Cerrar sesión",
+        "my_stand": "Mi Stand",
+        "user": "Usuario",
+        "login": "Acceder",
+        "cart": "Carrito",
+        "dark_mode": "Modo oscuro",
+        "light_mode": "Modo claro",
+        "links": {
+            "home": "Inicio",
+            "shop": "Tienda",
+            "teams": "Escuderías",
+            "services": "Servicios",
+            "providers": "Patrocinadores & Proveedores",
+            "map": "Mapa",
+            "contact": "Contacto",
+            "tickets": "Entradas"
+        },
+        "roles": {
+            "organizer": "Organizador",
+            "provider": "Proveedor",
+            "user": "Usuario"
+        },
+        "my_statistics": "Mis estadísticas"
+    },
+    "user": {
+        "dashboard": {
+            "title": "Mi Cuenta",
+            "subtitle": "Gestiona tu información personal y entradas"
+        },
+        "profile": {
+            "personal_info": "Información personal",
+            "security": "Seguridad",
+            "current_password": "Contraseña actual",
+            "new_password": "Nueva contraseña",
+            "current_password_placeholder": "Requerido para cambiar la contraseña",
+            "new_password_placeholder": "Dejar vacío para no cambiar",
+            "confirm_password_placeholder": "Confirmar nueva contraseña",
+            "update_password_btn": "Actualizar contraseña",
+            "save_btn": "Guardar cambios"
+        },
+        "qrcode": {
+            "title": "Mi código QR",
+            "description": "Usa este código QR para compras y verificaciones",
+            "loading": "Cargando tu código QR...",
+            "error": "No se puede generar el código QR",
+            "id_label": "ID:",
+            "scan_title": "Escanear un código QR",
+            "inventory_of": "Inventario de {name}",
+            "empty_inventory": "Ninguna compra registrada",
+            "error_scan": "Error al escanear: {error}",
+            "scanner": {
+                "start_btn": "Iniciar escaneo",
+                "stop_btn": "Detener escaneo",
+                "result_title": "Código QR escaneado:",
+                "camera_error": "No se puede acceder a la cámara: {error}",
+                "invalid_code": "Código QR no válido",
+                "verification_error": "Error al verificar el código QR"
+            }
+        },
+        "orders": {
+            "title": "Mis pedidos",
+            "loading": "Cargando pedidos...",
+            "empty": "No hay pedidos.",
+            "order_number": "Pedido #{id}",
+            "verified": "✓ Verificado",
+            "not_verified": "✗ No verificado"
+        },
+        "verification": {
+            "title": "Verificar código de entrada",
+            "label": "Código recibido por correo",
+            "placeholder": "Ej: GPX-1234-ABCD",
+            "btn_verify": "Verificar",
+            "success": "¡Código válido!",
+            "generated_on": "Generado el {date}",
+            "error_empty": "Por favor ingrese un código de entrada."
+        },
+        "errors": {
+            "password_required": "Por favor ingrese su contraseña actual para cambiarla.",
+            "password_mismatch": "Las nuevas contraseñas no coinciden.",
+            "password_length": "La nueva contraseña debe tener al menos 6 caracteres.",
+            "email_invalid": "Por favor ingrese un correo válido.",
+            "update_error": "Error al actualizar. Verifique su contraseña actual.",
+            "code_not_found": "Código no encontrado",
+            "missing_user_id": "Falta ID de usuario",
+            "local_fetch_error": "Error de recuperación local",
+            "server_error": "Error del servidor",
+            "fetch_error": "Error durante la recuperación",
+            "connection_error": "Error de conexión con el servidor"
+        },
+        "success": {
+            "update_ok": "¡Su información ha sido actualizada con éxito!"
+        }
+    },
+    "admin": {
+        "page_title": "Administración",
+        "dashboard": {
+            "subtitle": "Gestiona los proveedores y el contenido del sitio",
+            "providers_count": "proveedores",
+            "no_providers": "No se encontraron proveedores",
+            "view_page": "Ver la página"
+        },
+        "sidebar": {
+            "dashboard": "Panel de control",
+            "services": "Servicios",
+            "statistics": "Estadísticas",
+            "map": "Mapa",
+            "home_content": "Contenido inicio",
+            "messages": "Mensajes",
+            "users": "Usuarios"
+        },
+        "users": {
+            "title": "Gestión de usuarios",
+            "subtitle": "Gestione y consulte todas las cuentas de usuario",
+            "search_placeholder": "Buscar por nombre, correo electrónico o nombre de usuario...",
+            "role_all": "Todos los roles",
+            "role_organizer": "Organizador",
+            "role_provider": "Proveedor",
+            "role_user": "Usuario",
+            "table_username": "Usuario",
+            "table_email": "Email",
+            "table_role": "Rol",
+            "table_joined": "Registrado el",
+            "table_actions": "Acciones",
+            "view_orders": "Ver pedidos",
+            "no_users": "No se encontraron usuarios",
+            "orders_modal_title": "Pedidos de {user}",
+            "orders_empty": "Este usuario no ha realizado ningún pedido.",
+            "order_id": "Pedido",
+            "order_date": "Fecha",
+            "order_amount": "Total",
+            "order_status": "Estado",
+            "status_confirmed": "Confirmado",
+            "status_pending": "Pendiente",
+            "status_cancelled": "Cancelado",
+            "ticket_quantity": "x{quantity} entrada(s)"
+        },
+        "contact_messages": {
+            "page_title": "Mensajes de contacto",
+            "subtitle": "Consulte y gestione los mensajes enviados desde el formulario de contacto",
+            "total": "mensaje(s) en total",
+            "unread": "no leído(s)",
+            "no_messages": "No hay mensajes por el momento.",
+            "mark_read": "Marcar como leído",
+            "delete": "Eliminar"
+        },
+        "provider": {
+            "list_title": "Lista de proveedores",
+            "create_title": "Crear proveedor",
+            "edit_title": "Editar proveedor",
+            "delete_title": "Eliminar proveedor",
+            "modify_btn": "Editar",
+            "delete_btn": "Eliminar",
+            "cancel_btn": "Cancelar",
+            "confirm_delete": "¿Está seguro de que desea eliminar este proveedor?",
+            "fallback_name": "Proveedor"
+        },
+        "form": {
+            "login": "Usuario",
+            "password": "Contraseña",
+            "login_placeholder": "Ingrese usuario",
+            "password_placeholder": "Ingrese contraseña",
+            "manager_name": "Nombre del gerente",
+            "manager_placeholder": "Nombre del gerente",
+            "phone_placeholder": "+33 1 23 45 67 89",
+            "email_placeholder": "correo@ejemplo.com",
+            "company_name": "Nombre de la empresa",
+            "contact_person": "Persona de contacto",
+            "phone": "Teléfono"
+        },
+        "categories": {
+            "label": "Categoría",
+            "select": "Seleccionar una categoría",
+            "gaming": "Simulación",
+            "beverages": "Bebidas",
+            "karting": "Karting",
+            "camping": "Alojamiento",
+            "food": "Restaurante",
+            "music": "Música",
+            "other": "Otro"
+        },
+        "messages": {
+            "login_required": "El usuario es obligatorio",
+            "login_pass_required": "Se requiere usuario y contraseña",
+            "login_pass_name_required": "Se requiere usuario, contraseña y nombre de la empresa",
+            "user_exists": "Este nombre de usuario ya está en uso",
+            "user_exists_other": "Este nombre de usuario ya está siendo usado por otro proveedor",
+            "create_success": "¡Proveedor \"{name}\" creado con éxito!",
+            "create_success_invitation": "Proveedor \"{name}\" creado. Comparte el enlace de invitación a continuación.",
+            "invitation_generated": "Enlace de invitación (válido por 24h)",
+            "copy_link": "Copiar enlace",
+            "copy_success": "Enlace de invitación copiado.",
+            "copy_failed": "No se pudo copiar el enlace automáticamente.",
+            "update_success": "¡Proveedor \"{name}\" actualizado con éxito!",
+            "delete_confirm": "¿Realmente desea eliminar al proveedor \"{name}\"?",
+            "delete_success": "¡Proveedor eliminado con éxito!",
+            "view_page": "Ver página del proveedor"
+        },
+        "status": {
+            "creating": "Creando...",
+            "updating": "Actualizando...",
+            "deleting": "Eliminando..."
+        },
+        "errors": {
+            "delete_error": "Error al eliminar",
+            "provider_not_found": "Proveedor no encontrado"
+        },
+        "content": {
+            "page_title": "Editar contenido de la página de inicio",
+            "section_title_label": "Título de la sección",
+            "section_title_placeholder": "Título de la sección",
+            "section_content_label": "Contenido de la sección",
+            "section_image_label": "Imagen de la sección",
+            "cancel_btn": "Cancelar cambios",
+            "saving": "Guardando...",
+            "save_btn": "Guardar cambios",
+            "import_btn": "Importar",
+            "image_placeholder": "/img/tu-imagen.jpg o sube una imagen",
+            "upload_invalid_format": "Formato inválido. Use solo PNG o JPG.",
+            "upload_too_large": "Imagen demasiado grande. Tamaño máximo: 5MB.",
+            "upload_error": "Error al leer el archivo.",
+            "save_success": "¡Contenido guardado con éxito!",
+            "unknown_error": "Error desconocido",
+            "save_error": "Error al guardar"
+        },
+        "services": {
+            "service_name_placeholder": "Nombre del servicio",
+            "service_desc_placeholder": "Descripción del servicio",
+            "add_service": "+ Añadir servicio",
+            "save_changes": "Guardar cambios",
+            "cancel": "Cancelar",
+            "delete": "Eliminar",
+            "visibility_public": "Público",
+            "visibility_private": "Solo proveedor",
+            "page_title": "Servicios",
+            "subtitle": "Gestión de servicios ofrecidos por proveedores",
+            "no_providers": "Ningún proveedor activo",
+            "collapse": "Reducir",
+            "edit": "Editar",
+            "settings": "Configuración",
+            "stats_access": "Acceso a estadísticas",
+            "stats_access_desc": "Si está activado, el proveedor podrá ver las estadísticas de visitas de su página.",
+            "guestbook_access": "Acceso al libro de visitas",
+            "guestbook_access_desc": "Si está activado, los visitantes podrán dejar reseñas en la página del proveedor.",
+            "active": "Activo",
+            "visibility": "Visibilidad",
+            "url_placeholder": "URL del servicio (https://ejemplo.com o /providers/mi-stand)"
+        },
+        "map": {
+            "validate": "Validar",
+            "reject": "Rechazar",
+            "page_title": "Mapa",
+            "subtitle": "Gestione las solicitudes de ubicación de los proveedores.",
+            "assign_provider": "Asignar un proveedor",
+            "assign_desc": "Elija un proveedor activo y haga clic en un espacio libre para ubicarlo.",
+            "select_provider": "Seleccionar un proveedor",
+            "pending_requests": "Solicitudes pendientes",
+            "requests_to_process": "solicitudes a procesar",
+            "submitted_on": "Enviada el",
+            "contact": "Contacto",
+            "not_provided": "No proporcionado",
+            "no_pending": "No hay solicitudes pendientes por el momento.",
+            "occupied_spots": "Espacios ocupados",
+            "providers_installed": "proveedores instalados",
+            "occupied_by": "Ocupado por",
+            "last_update": "Última actualización",
+            "remove_provider": "Retirar proveedor",
+            "no_occupied": "Ningún proveedor ocupa un espacio por el momento.",
+            "decision_history": "Historial de decisiones",
+            "recent_decisions": "decisiones recientes",
+            "no_history": "Ninguna decisión registrada aún."
+        },
+        "statistics": {
+            "clear_data": "Borrar todos los datos",
+            "confirm_clear": "¿Está seguro de que desea borrar todos los datos?"
+        }
+    },
+    "admin_dashboard": {
+        "subtitle": "Gestión del evento y proveedores",
+        "providers_count": "proveedores",
+        "no_providers": "Ningún proveedor registrado aún.",
+        "view_page": "Ver Página",
+        "company_name": "Nombre de la empresa",
+        "company_name_placeholder": "Nombre de la empresa",
+        "category": "Categoría",
+        "select_category": "Seleccionar una categoría",
+        "contact_person": "Persona de contacto",
+        "phone": "Teléfono",
+        "email": "Correo electrónico"
+    },
+    "provider_dashboard": {
+        "products": {
+            "loading": "Cargando productos...",
+            "management_title": "Gestión de mis productos de tienda",
+            "my_products": "Mis productos",
+            "add_title": "Añadir producto",
+            "name_placeholder": "Nombre",
+            "type_placeholder": "Tipo",
+            "price_placeholder": "Precio",
+            "stock_placeholder": "Stock",
+            "add_btn": "Añadir",
+            "cancel_btn": "Cancelar",
+            "edit_btn": "Editar",
+            "delete_btn": "Eliminar",
+            "confirm_delete": "¿Eliminar este producto?",
+            "save_btn": "Guardar"
+        },
+        "location": {
+            "eyebrow": "Panel del Proveedor",
+            "title": "Elija su ubicación en el circuito de Bugatti",
+            "subtitle": "Visualice en tiempo real los estacionamientos, zonas de camping y puestos de proveedores disponibles. Envíe su solicitud de ubicación para que sea validada por el equipo organizador.",
+            "manage_products_btn": "Gestionar mis productos de tienda",
+            "status_label": "Mi estado",
+            "installed_at": "Instalado en {label}",
+            "waiting_installation": "Esperando instalación",
+            "manage_title": "Gestionar mi ubicación",
+            "occupied_label": "Puesto ocupado",
+            "public_maps_notice": "Asignado automáticamente a los mapas públicos.",
+            "no_reservation": "Ningún puesto reservado",
+            "click_to_start": "Haga clic en un puesto libre para comenzar.",
+            "selected_label": "Puesto seleccionado",
+            "submit_notice": "Envíe una solicitud para validación.",
+            "pending_request": "Solicitud pendiente",
+            "submitted_on": "Enviada el {date}",
+            "rejected_request": "Última solicitud rechazada",
+            "reason": "Motivo: {reason}",
+            "no_reason_provided": "No comunicado",
+            "submit_btn": "Enviar una solicitud",
+            "update_btn": "Actualizar mi solicitud",
+            "release_btn": "Retirarme de la zona",
+            "release_success": "Ha liberado su puesto.",
+            "release_error": "Ningún puesto para liberar.",
+            "request_success": "Solicitud enviada a la organización.",
+            "request_error": "No se pudo enviar la solicitud."
+        },
+        "stats": {
+            "title": "Estadísticas",
+            "views": "Vistas",
+            "orders": "Pedidos",
+            "revenue": "Ingresos"
+        }
+    },
+    "contact": {
+        "page_title": "CONTÁCTENOS",
+        "subtitle": "ESTAMOS AQUÍ PARA AYUDARTE",
+        "title": "Envíanos un mensaje",
+        "intro": "¿Una pregunta? ¿Un problema? Nuestro equipo está a tu disposición para responderte lo antes posible.",
+        "form": {
+            "name": "Nombre completo",
+            "email": "Correo electrónico",
+            "phone": "Teléfono",
+            "subject": "Asunto",
+            "message": "Mensaje"
+        },
+        "placeholders": {
+            "name": "Tu nombre",
+            "email": "tu@email.com",
+            "phone": "+33 6 12 34 56 78",
+            "subject": "Selecciona un asunto",
+            "message": "Tu mensaje..."
+        },
+        "submit": "Enviar mensaje",
+        "submitting": "Enviando...",
+        "info": {
+            "title": "Info",
+            "address": "Dirección",
+            "address_line1": "Circuit de la Sarthe",
+            "address_line2": "72200 Le Mans, Francia",
+            "phone": "Teléfono",
+            "email": "Correo electrónico"
+        },
+        "messages": {
+            "success": "¡Tu mensaje se ha enviado correctamente! Te responderemos lo antes posible."
+        },
+        "subjects": {
+            "general": "Pregunta general",
+            "tickets": "Entradas",
+            "partners": "Asociaciones",
+            "press": "Prensa",
+            "provider_request": "Solicitud de proveedor",
+            "other": "Otro"
+        }
+    },
+    "home": {
+        "title": "GP EXPLORER",
+        "subtitle": "THE LAST RACE",
+        "dates": "08 09 10 OCTUBRE 2026",
+        "location": "CIRCUITO BUGATTI",
+        "city": "LE MANS",
+        "tickets_btn": "ENTRADAS",
+        "countdown_title": "NOS VEMOS EN...",
+        "countdown": {
+            "days": "DÍAS",
+            "hours": "HORAS",
+            "minutes": "MINUTOS",
+            "seconds": "SEGUNDOS"
+        },
+        "scrolling_text": {
+            "event_date": "08 OCTUBRE 2026 - CIRCUITO BUGATTI LE MANS",
+            "tickets_available": "ENTRADAS DISPONIBLES AHORA",
+            "food_drinks": "PUESTOS GOURMET Y BEBIDAS GRATIS",
+            "concerts": "CONCIERTOS EXCLUSIVOS VIERNES Y SÁBADO",
+            "activities": "KARTING, NORIA Y SIMULADORES F1",
+            "limited_seats": "AFORO LIMITADO - EVENTO IMPERDIBLE"
+        },
+        "map_title": "Mapa interactivo"
+    },
+    "map_view": {
+        "title": "MAPA DEL CIRCUITO BUGATTI",
+        "subtitle": "PLANO COMPLETO DEL CIRCUITO",
+        "description": "Descubra el plano completo del Circuito Bugatti de Le Mans con las zonas de aparcamiento y acampada."
+    },
+    "map_store": {
+        "no_spot_selected": "Ningún puesto seleccionado.",
+        "provider_info_missing": "Falta información del proveedor.",
+        "spot_not_found": "Puesto no encontrado.",
+        "spot_already_occupied": "Este puesto ya está ocupado.",
+        "assign_error": "Error de asignación",
+        "network_error": "Error de red",
+        "release_missing_info": "Falta información para liberar el puesto.",
+        "not_occupying_spot": "No ocupas este puesto.",
+        "release_error": "Error al liberar",
+        "no_provider_specified": "No se indicó ningún proveedor.",
+        "no_spot_to_release": "No hay puesto para liberar."
+    },
+    "circuit_map": {
+        "circuit_name": "Circuito Bugatti",
+        "occupied_by": "Ocupado por",
+        "available": "Disponible",
+        "more_info": "Más info",
+        "view_page": "Ver página",
+        "click_to_interact": "Presiona para interactuar"
+    },
+    "teams": {
+        "page_title": "EQUIPOS GP EXPLORER",
+        "subtitle": "DESCUBRE EQUIPOS Y PILOTOS",
+        "intro": "Encuentra todos los equipos participantes en GP Explorer 1 y sus pilotos oficiales para esta edición única.",
+        "descriptions": {
+            "igraal": "Plataforma de Cashback",
+            "alpine": "Fabricante de Automóviles Francés",
+            "mwii": "Call of Duty: Modern Warfare II",
+            "nordvpn": "VPN",
+            "paris": "París, Francia",
+            "barcelona": "Barcelona, España",
+            "gaming": "Gaming"
+        }
+    },
+    "products": {
+        "PASS-DAY-08": {
+            "name": "Pase Diario - Jueves 8 Oct"
+        },
+        "PASS-DAY-09": {
+            "name": "Pase Diario - Viernes 9 Oct"
+        },
+        "PASS-DAY-10": {
+            "name": "Pase Diario - Sábado 10 Oct"
+        },
+        "PASS-2J-89": {
+            "name": "Pase 2 Días - 8 y 9 Oct"
+        },
+        "PASS-2J-910": {
+            "name": "Pase 2 Días - 9 y 10 Oct"
+        },
+        "PASS-3J-810": {
+            "name": "Pase 3 Días - 8, 9, 10 Oct"
+        },
+        "PASS-TRIB-2J": {
+            "name": "Pase Tribuna 2 Días"
+        },
+        "VIP-2J-89": {
+            "name": "VIP 2 Días - 8 y 9 Oct"
+        },
+        "VIP-3J-810": {
+            "name": "VIP 3 Días - 8, 9, 10 Oct"
+        },
+        "CONCERT-GEN-08": {
+            "name": "Concierto - Pelouse (8 Oct)"
+        },
+        "CONCERT-GEN-09": {
+            "name": "Concierto - Pelouse (9 Oct)"
+        },
+        "CONCERT-GEN-10": {
+            "name": "Concierto - Pelouse (10 Oct)"
+        },
+        "CONCERT-GOLD-08": {
+            "name": "Concierto - Golden Circle (8 Oct)"
+        },
+        "CONCERT-GOLD-09": {
+            "name": "Concierto - Golden Circle (9 Oct)"
+        },
+        "CONCERT-GOLD-10": {
+            "name": "Concierto - Golden Circle (10 Oct)"
+        },
+        "CONCERT-PRESTIGE-08": {
+            "name": "Concierto - Zona Prestigio (8 Oct)"
+        },
+        "CONCERT-PRESTIGE-09": {
+            "name": "Concierto - Zona Prestigio (9 Oct)"
+        },
+        "CONCERT-PRESTIGE-10": {
+            "name": "Concierto - Zona Prestigio (10 Oct)"
+        },
+        "KART-CHRONO-08": {
+            "name": "Karting Crono 12 min (8 Oct)"
+        },
+        "KART-CHRONO-09": {
+            "name": "Karting Crono 12 min (9 Oct)"
+        },
+        "KART-CHRONO-10": {
+            "name": "Karting Crono 12 min (10 Oct)"
+        },
+        "KART-ENDUR-08": {
+            "name": "Karting Resistencia 40 min (8 Oct)"
+        },
+        "KART-ENDUR-09": {
+            "name": "Karting Resistencia 40 min (9 Oct)"
+        },
+        "KART-ENDUR-10": {
+            "name": "Karting Resistencia 40 min (10 Oct)"
+        },
+        "KART-FAMILY-08": {
+            "name": "Karting Junior (8 Oct)"
+        },
+        "KART-FAMILY-09": {
+            "name": "Karting Junior (9 Oct)"
+        },
+        "KART-FAMILY-10": {
+            "name": "Karting Junior (10 Oct)"
+        },
+        "PLAY-60-08": {
+            "name": "Playseat Relevo F1 60 min (8 Oct)"
+        },
+        "PLAY-60-09": {
+            "name": "Playseat Relevo F1 60 min (9 Oct)"
+        },
+        "PLAY-60-10": {
+            "name": "Playseat Relevo F1 60 min (10 Oct)"
+        },
+        "PLAY-SHOOT-08": {
+            "name": "Playseat Shootout Clasif (8 Oct)"
+        },
+        "PLAY-SHOOT-09": {
+            "name": "Playseat Shootout Clasif (9 Oct)"
+        },
+        "PLAY-SHOOT-10": {
+            "name": "Playseat Shootout Clasif (10 Oct)"
+        },
+        "FOOD-MENU-08": {
+            "name": "Menú Burgouzz Fast Track (8 Oct)"
+        },
+        "FOOD-MENU-09": {
+            "name": "Menú Burgouzz Fast Track (9 Oct)"
+        },
+        "FOOD-MENU-10": {
+            "name": "Menú Burgouzz Fast Track (10 Oct)"
+        },
+        "FOOD-BRUNCH-09": {
+            "name": "Brunch Burgouzz (9 Oct)"
+        },
+        "FOOD-BRUNCH-10": {
+            "name": "Brunch Burgouzz (10 Oct)"
+        },
+        "DRINK-PASS-08": {
+            "name": "Pase Degustación Bebidas (8 Oct)"
+        },
+        "DRINK-PASS-09": {
+            "name": "Pase Degustación Bebidas (9 Oct)"
+        },
+        "DRINK-PASS-10": {
+            "name": "Pase Degustación Bebidas (10 Oct)"
+        },
+        "DRINK-REFILL-08": {
+            "name": "Refill Ilimitado 4h (8 Oct)"
+        },
+        "DRINK-REFILL-09": {
+            "name": "Refill Ilimitado 4h (9 Oct)"
+        },
+        "DRINK-REFILL-10": {
+            "name": "Refill Ilimitado 4h (10 Oct)"
+        },
+        "CAMP-KIT-2P-3J": {
+            "name": "Kit Camping 2 Pers (3 días)"
+        },
+        "CAMP-KIT-4P-3J": {
+            "name": "Kit Camping 4 Pers (3 días)"
+        },
+        "CAMP-LOCKER-08": {
+            "name": "Taquilla Segura Diaria (8 Oct)"
+        },
+        "CAMP-LOCKER-09": {
+            "name": "Taquilla Segura Diaria (9 Oct)"
+        },
+        "CAMP-LOCKER-10": {
+            "name": "Taquilla Segura Diaria (10 Oct)"
+        },
+        "CAMP-CARAVAN-3J": {
+            "name": "Sitio Caravana (3 días)"
+        },
+        "CASHLESS-START-08": {
+            "name": "Cashless Precargado 50€ (8 Oct)"
+        },
+        "CASHLESS-BOOST-3J": {
+            "name": "Cashless Boost 120€ (3 días)"
+        },
+        "CASHLESS-FAM-3J": {
+            "name": "Cashless Familia 200€ (3 días)"
+        }
+    },
+    "shop_view": {
+        "title": "Tienda & Merch",
+        "subtitle": "Equipos & Proveedores",
+        "description": "Selecciona una o más categorías para filtrar los artículos.",
+        "search_placeholder": "Buscar…",
+        "results_count": "artículo | artículos",
+        "show_all": "Mostrar todo",
+        "official_shop": "Tienda oficial",
+        "event_gpx": "🏁 Evento GPX",
+        "teams": "Escuderías",
+        "providers": "Proveedores",
+        "no_results": "Ningún artículo coincide con tus criterios.",
+        "view_all": "Ver todo",
+        "stock_label": "Stock: {stock}",
+        "stock_max": "Stock máximo alcanzado",
+        "add_to_cart": "Añadir al carrito",
+        "group_event": "GP Explorer — Evento",
+        "group_unknown_team": "Equipo desconocido",
+        "group_provider": "Proveedor",
+        "group_other": "Otro"
+    },
+    "shop_item": {
+        "back": "Volver a la tienda",
+        "not_found_title": "Artículo no encontrado",
+        "not_found_desc": "Este artículo no existe o ha sido retirado de la tienda.",
+        "out_of_stock": "Agotado",
+        "low_stock": "Solo quedan {stock} en stock",
+        "in_stock": "{stock} en stock",
+        "quantity": "Cantidad",
+        "add_to_cart": "Añadir al carrito",
+        "stock_max": "Stock máximo alcanzado",
+        "added_to_cart": "{count}× {title} añadido(s) al carrito"
+    },
+    "provider_products": {
+        "title": "Mis Productos",
+        "subtitle": "Gestiona los productos de tu stand — aparecen en la tienda.",
+        "add_product": "Añadir un producto",
+        "stock_label": "Stock: {available} / {total}",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "empty": "Ningún producto por el momento.",
+        "add_first": "Añadir tu primer producto",
+        "modal_edit_title": "Editar producto",
+        "modal_add_title": "Añadir un producto",
+        "label_title": "Título *",
+        "label_title_fr": "Título (FR) *",
+        "placeholder_title_fr": "Nombre del producto en francés",
+        "label_title_en": "Título (EN)",
+        "placeholder_title_en": "Nombre del producto en inglés",
+        "label_title_es": "Título (ES)",
+        "placeholder_title_es": "Nombre del producto en español",
+        "placeholder_title": "Nombre del producto",
+        "label_description": "Descripción",
+        "label_description_fr": "Descripción (FR)",
+        "placeholder_description_fr": "Descripción del producto en francés",
+        "label_description_en": "Descripción (EN)",
+        "placeholder_description_en": "Descripción del producto en inglés",
+        "label_description_es": "Descripción (ES)",
+        "placeholder_description_es": "Descripción del producto en español",
+        "placeholder_description": "Descripción del producto",
+        "label_price": "Precio (€) *",
+        "label_stock": "Stock *",
+        "label_category": "Categoría",
+        "placeholder_category": "ej: comida, bebida, merch",
+        "label_image": "URL de imagen",
+        "placeholder_image": "/img/products/mi-producto.jpg",
+        "label_tags": "Etiquetas (separadas por comas)",
+        "placeholder_tags": "ej: vegetariano, bio, local",
+        "cancel": "Cancelar",
+        "saving": "Guardando…",
+        "save": "Guardar",
+        "add": "Añadir",
+        "error_title_required": "El título es obligatorio.",
+        "error_title_i18n_required": "Introduce al menos un título (FR, EN o ES).",
+        "error_price_positive": "El precio debe ser superior a 0.",
+        "error_stock_positive": "El stock debe ser ≥ 0.",
+        "error_save": "Error al guardar.",
+        "confirm_delete": "¿Estás seguro de que quieres eliminar este producto?"
+    },
+    "admin_stats": {
+        "title": "Estadísticas de visitas",
+        "subtitle": "Análisis de visitas en las páginas de proveedores",
+        "tickets_sold": "Entradas vendidas",
+        "objects_sold": "Objetos vendidos",
+        "purchases_by_category_title": "Categorías de entradas/productos comprados",
+        "chart_category_quantity": "Cantidad comprada",
+        "item_type_ticket": "Entrada",
+        "item_type_product": "Producto",
+        "item_type_merch": "Merch",
+        "item_type_other": "Otro",
+        "ticket_uncategorized": "Entrada sin categoría",
+        "product_uncategorized": "Producto sin categoría",
+        "category_other": "otro",
+        "no_purchase_data": "Sin compras",
+        "total_visits": "Visitas totales",
+        "providers_visited": "Proveedores visitados",
+        "avg_per_provider": "Promedio / proveedor",
+        "top_providers_title": "Proveedores más visitados",
+        "daily_revenue_title": "Ingresos diarios (entradas + productos)",
+        "daily_revenue_label": "Ingresos / día",
+        "range_filter_label": "Periodo",
+        "range_7d": "7 días",
+        "range_15d": "15 días",
+        "range_30d": "30 días",
+        "ratings_title": "Promedio de notas del libro de visitas por proveedor",
+        "chart_visits": "Visitas",
+        "chart_no_provider": "Ningún proveedor",
+        "chart_no_reviews": "Sin opiniones",
+        "chart_rating_axis": "Nota sobre 5"
+    },
+    "admin_providers_page": {
+        "title": "Proveedores",
+        "subtitle": "Gestión de proveedores registrados",
+        "coming_soon": "Contenido próximamente..."
+    },
+    "cart_badges": {
+        "shop": "Tienda",
+        "ticket": "Entrada"
+    },
+    "not_found": {
+        "title": "PÁGINA NO ENCONTRADA",
+        "message": "La página que buscas no existe o ha sido movida.",
+        "go_home": "Volver al inicio",
+        "go_back": "Página anterior"
+    },
+    "forbidden": {
+        "title": "Acceso denegado",
+        "subtitle": "No tienes los permisos necesarios para acceder a esta página.",
+        "login_prompt": "Debes iniciar sesión para acceder a esta página.",
+        "go_home": "Volver al inicio",
+        "role_organizer": "Organizador",
+        "role_provider": "Proveedor",
+        "role_user": "Usuario",
+        "required_roles": "Roles requeridos:",
+        "role_message": "No tienes acceso a esta página.",
+        "role_reserved": "Reservado para cuentas",
+        "your_role": "Tu rol actual:",
+        "default_message": "No tienes el permiso necesario para este recurso.",
+        "my_area_button": "Ir a mi área",
+        "requested_page": "Página solicitada:"
+    },
+    "admin_map_view": {
+        "positioned_on": "{name} está actualmente posicionado en {label}.",
+        "request_approved": "Solicitud aprobada y ubicación asignada.",
+        "reject_reason_prompt": "Motivo del rechazo (opcional):",
+        "request_rejected": "Solicitud rechazada.",
+        "provider_removed": "Proveedor retirado y ubicación liberada.",
+        "select_active_provider": "Selecciona un proveedor activo...",
+        "confirm_assign": "¿Deseas asignar {provider} a la ubicación {label}?",
+        "assign_success": "Proveedor asignado con éxito.",
+        "assign_error": "Error durante la asignación."
+    },
+    "contact_errors": {
+        "send_error": "Error al enviar el mensaje."
+    },
+    "guestbook_extra": {
+        "reviews_label": "opiniones",
+        "default_provider": "este proveedor"
+    },
+    "navbar_extra": {
+        "language_label": "Idioma: "
+    },
+    "user_home": {
+        "ticket_fallback": "Entrada/Producto",
+        "unknown_date": "Fecha desconocida"
+    },
+    "ticket_segment": {
+        "filter_date": "Fecha",
+        "filter_all": "Todas",
+        "filter_price": "Precio",
+        "filter_reset": "Reiniciar",
+        "load_error": "No se puede cargar la taquilla"
+    },
+    "admin_shop": {
+        "title": "Tienda",
+        "subtitle": "Gestiona todos los artículos de la tienda, incluso los desactivados.",
+        "refresh": "Actualizar",
+        "products_count": "{count} productos",
+        "loading": "Cargando productos...",
+        "no_products": "No se encontraron productos.",
+        "table": {
+            "product": "Producto",
+            "shop": "Tienda",
+            "price": "Precio",
+            "stock": "Stock",
+            "actions": "Acciones",
+            "no_category": "Sin categoría",
+            "unknown_shop": "Tienda desconocida"
+        },
+        "actions": {
+            "edit": "Editar",
+            "delete": "Eliminar"
+        },
+        "modal": {
+            "edit_title": "Editar producto",
+            "name_fr": "Nombre (FR)",
+            "name_en": "Nombre (EN)",
+            "name_es": "Nombre (ES)",
+            "desc_fr": "Descripción (FR)",
+            "desc_en": "Descripción (EN)",
+            "desc_es": "Descripción (ES)",
+            "price": "Precio",
+            "stock": "Stock",
+            "category": "Categoría",
+            "image": "Imagen",
+            "cancel": "Cancelar",
+            "save": "Guardar",
+            "saving": "Guardando...",
+            "confirm_delete": "¿Eliminar permanentemente \"{name}\"?"
+        }
+    }
+}

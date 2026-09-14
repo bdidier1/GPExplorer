@@ -1,0 +1,461 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages essentiels
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{colortbl}
+
+% Configuration de la page
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm,
+    headheight=25pt
+}
+
+% Configuration des couleurs
+\definecolor{maincolor}{RGB}{41, 128, 185}
+\definecolor{secondcolor}{RGB}{52, 73, 94}
+\definecolor{accentcolor}{RGB}{231, 76, 60}
+
+% Configuration des liens hypertexte
+\hypersetup{
+    colorlinks=true,
+    linkcolor=maincolor,
+    filecolor=maincolor,
+    urlcolor=maincolor,
+    citecolor=maincolor
+}
+
+% Configuration des en-têtes et pieds de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{maincolor}{\leftmark}}
+\fancyhead[R]{\textcolor{maincolor}{Rapport de présentation}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{maincolor}\leaders\hrule height \headrulewidth\hfill}}
+
+% Style des titres
+\titleformat{\section}
+    {\Large\bfseries\color{maincolor}}
+    {\thesection}{1em}{}
+    [\titlerule]
+
+\titleformat{\subsection}
+    {\large\bfseries\color{secondcolor}}
+    {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\normalsize\bfseries\color{secondcolor}}
+    {\thesubsubsection}{1em}{}
+
+% Configuration du sommaire
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\bfseries\color{maincolor}}
+
+% Informations du document
+\title{GP Explorer - Système de gestion événementielle}
+\author{BELEY Gauthier, DIDIER Baptiste, DUARTE Antoine, LAFAY Mehdi, LORENZINI Thomas}
+\date{26 septembre 2025}
+
+\begin{document}
+
+% ========================================
+% PAGE DE GARDE
+% ========================================
+\begin{titlepage}
+    \centering
+    
+    % Logo IUT
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{IUT_logo.png}
+    \end{figure}
+    
+    \vspace{0.5cm}
+    
+    % Institution
+    {\large \textcolor{secondcolor}{\textbf{SAE S3-S4 - BUT Informatique - Groupe X}} \par}
+    
+    \vspace{1cm}
+    
+    % Titre principal unique
+    \begin{center}
+        \rule{\textwidth}{0.4pt}
+        \parbox[c][1.5cm][c]{\textwidth}{\centering\Huge \textbf{Présentation du projet GP Explorer}}
+        \rule{\textwidth}{0.4pt}
+    \end{center}
+    
+    \vspace{1.5cm}
+    
+    % Équipe projet
+    \begin{center}
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabular}{|>{\centering}p{6cm}|>{\centering\arraybackslash}p{3cm}|}
+            \hline
+            \rowcolor{maincolor!20}
+            \textbf{\textcolor{maincolor}{Membre de l'équipe}} & \textbf{\textcolor{maincolor}{Groupe}} \\
+            \hline
+            \textbf{BELEY Gauthier} & A1 \\
+            \hline
+            \textbf{DIDIER Baptiste} & B1 \\
+            \hline
+            \textbf{DUARTE Antoine} & B1 \\
+            \hline
+            \textbf{LAFAY Mehdi} & B1 - \textcolor{accentcolor}{\textbf{Référent}} \\
+            \hline
+            \textbf{LORENZINI Thomas} & B2 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    
+    \vfill
+    
+    % Date de présentation
+    \begin{center}
+        {\large 26 septembre 2025}
+    \end{center}
+    
+\end{titlepage}
+
+% ========================================
+% SOMMAIRE
+% ========================================
+\newpage
+\setcounter{page}{2}
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% ========================================
+% CONTENU PRINCIPAL
+% ========================================
+\newpage
+
+\section{Thème du projet et motivations}
+
+\subsection{Choix du thème}
+% Décrire le thème choisi
+Le projet choisi s’inscrit dans le domaine de l’automobile, avec comme référence un grand prix : \textbf{le GP Explorer}, une course de Formule 4 organisée par le vidéaste \textbf{Squeezie} et réunissant diverses personnalités issues d’Internet. Ce thème a été retenu car il combine plusieurs aspects intéressants pour notre projet : un évènement sportif et médiatique largement connu du grand public, une organisation complexe nécessitant une gestion précise des prestataires, des services et du public, ainsi qu’un cadre motivant offrant de nombreuses possibilités pour intégrer les fonctionnalités attendues dans l'application (plan interactif, gestion logistique, services numériques, statistiques, etc.). Le GP Explorer constitue donc un exemple concret, pertinent et stimulant pour concevoir une application web de gestion d'évènement en adéquation avec les exigences du cahier des charges.
+\subsection{Motivations}
+% Expliquer pourquoi ce thème a été choisi
+Notre équipe a retenu ce sujet pour plusieurs raisons :  
+
+\begin{itemize}
+  \item \textbf{Intérêt personnel} : nous suivons régulièrement le GP Explorer et partageons une passion commune pour l'automobile, ce qui rend ce projet motivant à réaliser.  
+  \item \textbf{Volonté d'appliquer nos compétences} : ce projet est l'occasion de mettre en pratique le développement full-stack (Vue.js, Node.js/Express, MySQL) dans un contexte concret et stimulant.  
+  \item \textbf{Entraînement à la gestion de projet} : travailler sur un cas d'organisation de grande ampleur nous prépare à des situations professionnelles variées.  
+  \item \textbf{Motivation collective} : choisir un thème qui nous plaît renforce notre implication et nous pousse à investir pleinement dans le projet.  
+\end{itemize}
+
+\newpage
+\section{Cadre géographique}
+
+\subsection{Zone d'étude}
+Le circuit Bugatti est une déclinaison du circuit des 24 Heures du Mans, utilisé pour la Formule 1 depuis 60 ans et aujourd'hui principalement pour des compétitions de moto et d'automobile.
+Il mesure 4,185 km et comporte 14 virages, offrant un tracé varié adapté aux monoplaces de type Formule 4, utilisées pour l'événement du GP explorer.
+
+La zone d'étude couvre donc :
+\begin{itemize}
+    \item Le site du Mans (ville d'accueil ainsi que infrastructures).
+    \item Le Circuit Bugatti (zone principale de la compétition).
+    \item Les espaces annexes (stands, paddocks, zones pour le public, animations et autres).
+\end{itemize}
+
+\subsection{Première ébauche cartographique}
+
+
+% Insérer une première version de la carte ou un schéma
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Bugatti_Circuit.svg.png}
+    \caption{Première ébauche de la carte géographique du projet}
+    \label{fig:carte}
+\end{figure}
+
+\newpage
+\section{Types de prestataires et activités}
+
+\subsection{Prestataires officiels du GP Explorer}
+
+Le GP Explorer rassemble sept prestataires spécialisés offrant une expérience événementielle complète :
+
+\begin{itemize}[itemsep=0.4cm]
+    \item \textbf{GP Explorer} (organisateur principal) : gestion de la billetterie, stands de merchandising et espaces de dédicaces avec les pilotes.
+    
+    \item \textbf{Playseat} : mise à disposition de simulateurs de Formule 1 haute fidélité pour une expérience de pilotage immersive.
+    
+    \item \textbf{Ciao Kombucha} : stand de boissons spécialisé dans les boissons fermentées et alternatives.
+    
+    \item \textbf{Sodikart} : organisation de tours de karting permettant au public de s'initier au sport automobile.
+    
+    \item \textbf{Decathlon} : location de matériel de camping (tentes) pour l'hébergement des spectateurs.
+    
+    \item \textbf{Burgouzz} : restauration rapide de qualité adaptée au contexte événementiel.
+    
+    \item \textbf{Deezer} : animation musicale avec l'organisation de concerts et ambiance sonore.
+\end{itemize}
+
+\vspace{0.5cm}
+Cette diversité de prestataires couvre l'ensemble des besoins : divertissement interactif, restauration, hébergement, animation musicale et services événementiels, créant un écosystème complet autour de la passion automobile.
+
+\newpage
+\section{Services fournis}
+
+\subsection{Services de restauration et rafraîchissement}
+
+\begin{itemize}
+    \item \textbf{Stands de nourriture} : De nombreux stands de nourriture seront installés dans la zone. Ils seront diversifiés afin de plaire à tout le monde (de la viennoiserie aux spécialités plus élaborées).
+    
+    \item \textbf{Stands de boissons} : Des stands de boissons à thèmes et des stands d'eau gratuits seront éparpillés aux quatre coins de l'évènement pour permettre de s'hydrater à tout moment.
+    
+    \item \textbf{Stand ``Ciao Kombucha''} : Des stands de Ciao Kombucha, marque de boisson du créateur du GP Explorer Squeezie, seront présents un peu partout et il y aura aussi des distributions gratuites de quoi ravir tout le monde.
+\end{itemize}
+
+\subsection{Services de souvenirs}
+
+\begin{itemize}
+    \item \textbf{Stands de merchandising} : Vente de produits dérivés liés à l'événement comme des casquettes, des maillots ou des drapeaux aux couleurs de l'écurie que vous supportez.
+\end{itemize}
+
+\subsection{Services de rencontres}
+
+\begin{itemize}
+    \item \textbf{Stands de dédicaces} : Divers stands avec des célébrités liées à l'événement pour les rencontrer.
+    
+    \item \textbf{Concerts} : Des concerts auront lieu le vendredi et le samedi à des endroits spécifiques avec les artistes français les plus convoités.
+\end{itemize}
+
+\subsection{Services de confort}
+
+\begin{itemize}
+    \item \textbf{Parking} : Des espaces gratuits pour accueillir les visiteurs seront mis à disposition pour garantir une bonne organisation.
+    
+    \item \textbf{Camping} : Des zones seront prévues pour que les visiteurs puissent y dormir, évitant ainsi aux personnes venues de loin des contraintes de déplacement.
+\end{itemize}
+
+\subsection{Services de loisirs}
+
+\begin{itemize}
+    \item \textbf{Grande roue} : Une grande roue sera mise à disposition offrant une vue sur le circuit et sur l'ensemble du site.
+    
+    \item \textbf{Simulateur F1} : Des simulateurs de F1 seront à disposition pour faire ressentir aux visiteurs les sensations qu'éprouve un pilote lors d'une course.
+    
+    \item \textbf{Karting} : Un circuit de karting sera présent dans l'événement pour permettre aux visiteurs de tester leurs capacités de pilotage.
+\end{itemize}
+
+\newpage
+\section{Statistiques et visualisations}
+
+Cette section présente les indicateurs clés et les outils de visualisation qui permettront d'analyser la performance de l'événement et d'optimiser les futures éditions du GP Explorer. En nous basant sur les données réelles issues des éditions précédentes, ces statistiques sont conçues pour offrir une vue d'ensemble précise et actionnable.
+
+\subsection{Types de statistiques prévues}
+
+Pour chaque service de l'application, des métriques spécifiques seront collectées pour évaluer l'efficacité opérationnelle et la satisfaction des spectateurs.
+
+\subsubsection{Statistiques du service de Restauration \& Boissons}
+
+Ces métriques visent à optimiser la logistique et à comprendre les habitudes de consommation des 60~000 spectateurs sur place.
+
+\begin{itemize}
+    \item \textbf{Métrique 1 : Transactions cashless par stand et par heure} \\
+    L'analyse des données de paiement cashless permet d'identifier les pics d'affluence et de chiffre d'affaires. Par exemple, une augmentation des transactions aux stands de boissons avant les concerts ou pendant les pauses de la course.
+
+    \item \textbf{Métrique 2 : Ventes par type de produit} \\
+    Cette statistique permet de connaître les produits les plus demandés (ex.~: burgers vs. salades, boissons énergisantes vs. eau) pour adapter l'offre et la quantité des stocks.
+
+    \item \textbf{Métrique 3 : Satisfaction client} \\
+    Un système de notation intégré à l'application permet de recueillir des avis sur la qualité des produits et le temps d'attente, fournissant un score de satisfaction moyen par stand.
+\end{itemize}
+
+\subsubsection{Statistiques du service de Merchandising}
+
+L'analyse des ventes de merchandising est cruciale pour mesurer l'engagement des fans et le succès des produits dérivés officiels du GP Explorer.
+
+\begin{itemize}
+    \item \textbf{Métrique 1 : Chiffre d'affaires par article et par pilote} \\
+    Permet de suivre en temps réel la popularité de chaque équipe et pilote à travers les ventes de leurs produits (ex.~: casquette Squeezie, t-shirt Vilebrequin).
+
+    \item \textbf{Métrique 2 : Distribution géographique des ventes} \\
+    En se basant sur la localisation des transactions via l'application, on peut identifier les stands de merchandising les plus fréquentés et optimiser leur emplacement pour la prochaine édition.
+\end{itemize}
+
+\subsubsection{Statistiques croisées et globales}
+
+Ces statistiques permettent d'identifier les corrélations entre les différents services et de mieux comprendre le parcours du spectateur.
+
+\begin{itemize}
+    \item \textbf{Métrique 1 : Corrélation entre l'affluence et les ventes} \\
+    L'application permet de comparer le trafic piéton dans certaines zones (via la géolocalisation des utilisateurs) avec les données de ventes de nourriture, de boissons et de merchandising pour optimiser le positionnement des stands.
+
+    \item \textbf{Métrique 2 : Taux d'utilisation des services de loisirs} \\
+    Mesure le nombre de spectateurs utilisant les simulateurs F1, la grande roue ou participant aux sessions de dédicaces, afin d'évaluer le succès de chaque activité.
+\end{itemize}
+
+\subsection{Visualisations et tableaux de bord}
+
+{\sloppy
+Le projet proposera des visualisations intuitives pour rendre les données lisibles et exploitables.
+
+% Ajout des visualisations statistiques
+
+\begin{itemize}
+    \item \textbf{Tableau de bord de performance globale} \\
+    Ce dashboard central affichera en temps réel des métriques clés comme l'affluence totale sur le site, le chiffre d'affaires cumulé des ventes, et l'audience Twitch (rappelons que le GP Explorer 2 a atteint 1{,}3 million de spectateurs simultanés).
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{dashboard_global.png}
+        \caption{Tableau de bord de performance globale du GP Explorer}
+        \label{fig:dashboard}
+    \end{figure}
+
+    \item \textbf{Ventes par type de produit - Service Restauration} \\
+    Cette visualisation présente la répartition des ventes dans le secteur de la restauration, permettant d'identifier les produits les plus populaires.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{ventes_produits.png}
+        \caption{Ventes par type de produit dans le service restauration}
+        \label{fig:ventes}
+    \end{figure}
+
+    \item \textbf{Transactions par paiements dématérialisés} \\
+    Ce graphique montre l'évolution des transactions cashless tout au long de la journée, avec une distinction entre les stands de nourriture et de boissons.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{transactions_demat.png}
+        \caption{\begin{minipage}{0.8\textwidth} \centering Évolution des transactions par paiements dématérialisés \end{minipage}}
+        \label{fig:transactions}
+    \end{figure}
+
+    \item \textbf{Popularité des produits merchandising par pilote} \\
+    Cette heatmap permet de visualiser la performance des ventes de merchandising en fonction des pilotes et des types de produits, offrant des insights précieux pour optimiser l'offre.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{popularite_pilotes.png}
+        \caption{\begin{minipage}{0.8\textwidth} \centering Popularité des produits merchandising par pilote \end{minipage}}
+        \label{fig:merchandising}
+    \end{figure}
+\end{itemize}
+}
+
+\newpage
+\section{Conclusion et perspectives}
+
+\subsection{Synthèse du projet}
+
+Le projet GP Explorer représente une solution complète de gestion événementielle qui s'appuie sur les technologies modernes pour optimiser l'organisation d'un grand prix automobile. En intégrant une cartographie interactive du circuit Bugatti au Mans, une gestion multi-prestataires spécialisés, et un système de statistiques en temps réel, notre application répond aux défis logistiques et opérationnels d'un événement de cette envergure.
+
+Les visualisations présentées dans la section 5 démontrent la capacité de notre système à fournir des données actionnables pour les organisateurs, tout en améliorant l'expérience des spectateurs grâce à des services numériques innovants. L'analyse des transactions dématérialisées, la popularité des produits merchandising, et les performances des différents services permettent une prise de décision éclairée pour les éditions futures.
+
+\subsection{Perspectives de développement}
+
+Les prochaines étapes de développement du projet s'articuleront autour des axes suivants :
+
+\begin{itemize}
+    \item \textbf{Développement technique} : Finalisation de l'architecture full-stack (Vue.js, Node.js/Express, MySQL) avec implémentation des API REST pour la gestion des données en temps réel.
+    
+    \item \textbf{Intégration des données} : Connexion avec les systèmes de paiement cashless et développement des algorithmes d'analyse prédictive pour anticiper les pics d'af\-fluence.
+    
+    \item \textbf{Optimisation mobile} : Amélioration de l'interface utilisateur pour une expérience mobile optimale, avec notifications push pour informer les spectateurs des temps d'attente et des événements en cours.
+    
+    \item \textbf{Tests et validation} : Organisation de tests utilisateurs sur un prototype fonctionnel pour valider l'ergonomie et l'efficacité des différentes fonctionnalités.
+    
+    \item \textbf{Extension fonctionnelle} : Ajout de fonctionnalités avancées comme la réalité augmentée pour la navigation sur le site, ou l'intégration de systèmes de réservation pour les activités populaires.
+\end{itemize}
+
+Ce projet s'inscrit dans une vision à long terme d'optimisation continue, où chaque édition du GP Explorer permettra d'enrichir le système avec de nouvelles données et fonctionnalités, faisant de cette application un outil indispensable pour l'organisation d'événements sportifs de grande envergure.
+
+% ========================================
+% GLOSSAIRE
+% ========================================
+\newpage
+\section*{Glossaire}
+\addcontentsline{toc}{section}{Glossaire}
+
+\begin{description}
+    \item[GP Explorer] : Événement automobile organisé par Squeezie rassemblant des personnalités d'Internet pour une course de Formule 4.
+    \item[Cashless] : Système de paiement dématérialisé utilisant des bracelets ou cartes rechargeables.
+    \item[Merchandising] : Vente de produits dérivés et souvenirs officiels de l'événement.
+    \item[Tableau de bord] : Interface de visualisation de données en temps réel pour la prise de décision.
+    \item[SAE] : Situation d'Apprentissage et d'Évaluation.
+    \item[API] : Application Programming Interface, interface de programmation permettant la communication entre applications.
+    \item[Full-stack] : Développement couvrant à la fois le front-end (interface utilisateur) et le back-end (serveur et base de données).
+\end{description}
+
+% ========================================
+% ANNEXES (si nécessaire)
+% ========================================
+\newpage
+\section*{Annexes}
+\addcontentsline{toc}{section}{Annexes}
+
+\subsection*{Annexe A : Schémas techniques}
+[Si nécessaire, insérer des schémas techniques détaillés]
+
+\subsection*{Annexe B : Références}
+[Si nécessaire, lister les références bibliographiques]
+
+% ========================================
+% QUATRIÈME DE COUVERTURE
+% ========================================
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+
+\begin{center}
+    \Large \textbf{Quatrième de couverture}
+    \vspace{2cm}
+    
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        
+        \textbf{Résumé du projet}
+        
+        \vspace{1cm}
+        
+        Ce rapport présente le projet \textbf{GP Explorer}, un système de gestion événementielle développé dans le cadre de la SAE S3-S4. Il détaille le cadre géographique d'implémentation, les types de prestataires et d'activités concernés, les services fournis par la plateforme ainsi que les statistiques et visualisations prévues pour optimiser la gestion des événements.
+        
+        \vspace{1cm}
+        
+        \textbf{Mots-clés :} gestion événementielle, cartographie interactive, prestataires, logistique, analyse de données
+        
+        \vspace{2cm}
+        
+        \textbf{Contact}
+        
+        IUT Nord Franche-Comté \\
+        Université de Franche-Comté \\
+        BUT Informatique \\
+        \texttt{mehdi.lafay@edu.univ-fcomte.fr}
+        
+    \end{minipage}
+\end{center}
+
+\vspace*{\fill}
+
+\end{document}

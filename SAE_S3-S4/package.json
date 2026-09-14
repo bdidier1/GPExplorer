@@ -1,0 +1,20 @@
+{
+  "name": "sae-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run client:dev",
+    "client:dev": "npm --prefix client run dev",
+    "client:install": "npm --prefix client install",
+    "api:dev": "npm --prefix api run dev",
+    "api:start": "npm --prefix api run start",
+    "api:install": "npm --prefix api install",
+    "install:all": "npm --prefix client install && npm --prefix api install"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

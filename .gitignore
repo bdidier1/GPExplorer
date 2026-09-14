@@ -1,0 +1,69 @@
+*.env
+
+# macOS
+.DS_Store
+
+# Dossiers de développement
+.vscode/
+!.vscode/extensions.json
+.idea
+.dist/
+
+# Fichiers LaTeX temporaires
+*.aux
+*.log
+*.out
+*.toc
+*.gz
+*.synctex.gz
+*.bak
+*.tmp
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.lof
+*.lot
+*.thm
+*.ps
+*.dvi
+*.pdf
+rapports/compile.bat
+!rapports/rapport.pdf
+!rapports/rapport.ltx
+
+# Node.js
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.local
+*.tsbuildinfo
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Tests
+/cypress/videos/
+/cypress/screenshots/
+
+# Fichiers d'éditeurs
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Lock files
+/api/package-lock.json
+/client/package-lock.json
+

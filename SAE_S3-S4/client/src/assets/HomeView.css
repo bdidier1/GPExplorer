@@ -1,0 +1,850 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap');
+
+/* évite le scroll horizontal */
+:global(body) {
+  overflow-x: hidden;
+}
+
+#home {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+/* damier f1 */
+.checkered-flag {
+  width: 100vw; 
+  z-index: 1; 
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* damier de la section du haut sous la navbar */
+#home .checkered-flag {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+}
+
+/* damier des autres sections */
+#home-about .checkered-flag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+.checkered-row {
+  display: flex;
+  height: calc(25px / 3);
+  width: 100%;
+  flex: 1;
+}
+
+.checkered-square {
+  flex: 1; 
+  min-width: 10px; 
+  height: 100%;
+}
+
+.checkered-square.black {
+  background-color: var(--text-strong);
+}
+
+.checkered-square.white {
+  background-color: var(--surface-card-strong);
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: -1;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 80px);
+  position: relative;
+  z-index: 1;
+  margin-top: -80px;
+  padding-top: 80px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* section gauche */
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem 4rem 4rem;
+  color: white;
+  padding-top: calc(80px + 4rem);
+}
+
+.title-block {
+  margin-bottom: 3rem;
+}
+
+.main-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0;
+  background: var(--surface-card-strong);
+  color: var(--text-strong);
+  padding: 1rem 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle-block {
+  margin-top: 1rem;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  background: #E72D55;
+  color: var(--text-invert);
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  transform: skewX(-8deg);
+  box-shadow: 0 2px 8px rgba(231, 45, 85, 0.3);
+  text-transform: uppercase;
+}
+
+.event-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.event-dates {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #e72d55;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.location, .city {
+  margin-bottom: 0.3rem;
+  font-size: 1.8rem;
+}
+
+/* section droite */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.countdown-container {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+  max-width: 550px;
+  width: 100%;
+}
+
+.countdown-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: white;
+}
+
+/* timer f1 style écran de course */
+.f1-timer-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+/* écran principal du timer */
+.timer-screen {
+  background: #05070d;
+  border: 8px solid #E72D55;
+  border-radius: 35px;
+  padding: 3.5rem 3rem;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(231, 45, 85, 0.5),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+  min-width: min(500px, 100%);
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.time-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.time-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #f8fafc;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  font-variant-numeric: tabular-nums;
+}
+
+.time-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #E72D55;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+
+.time-separator {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #f8fafc;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+  flex-shrink: 0;
+}
+
+/* bouton billetterie dans la section gauche */
+.billetterie-btn-left {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: #E72D55;
+  border: 2px solid #E72D55;
+  color: var(--text-invert);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 45, 85, 0.4);
+  display: inline-block;
+}
+
+.billetterie-btn-left:hover {
+  background: #c91f45;
+  border-color: #c91f45;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 45, 85, 0.6);
+}
+
+/* en dark mode on garde ces éléments comme en clair */
+html.dark-mode #home .main-title {
+  background: #ffffff;
+  color: #000000;
+}
+
+html.dark-mode #home .subtitle {
+  color: #ffffff;
+}
+
+html.dark-mode #home .billetterie-btn-left,
+html.dark-mode #home .billetterie-btn-left:hover {
+  color: #ffffff;
+}
+
+/* barre de texte défilant */
+.scrolling-text-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 60px;
+  background-color: #000000; 
+  color: #ffffff; 
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.scrolling-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll-left 45s linear infinite;
+}
+
+.scrolling-item {
+  font-family: 'Inter', sans-serif; 
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 4rem;
+  display: inline-block;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* section à propos */
+#home-about {
+  padding: 4rem 2rem;
+  padding-top: calc(40px + 2rem);
+  background-color: var(--surface-gradient-start);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-strong);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.about-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p strong {
+  color: #E72D55;
+}
+
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  max-height: 600px;
+}
+
+/* ========================================
+  responsive
+======================================== */
+
+/* responsive du damier */
+@media (max-width: 768px) {
+  .checkered-flag {
+    height: 20px;
+  }
+  
+  .checkered-row {
+    height: calc(20px / 3);
+  }
+  
+  .checkered-square {
+    min-width: 8px;
+  }
+  
+  .scrolling-text-bar {
+    height: 50px;
+  }
+  
+  .scrolling-item {
+    font-size: 1rem;
+    margin-right: 3rem;
+  }
+  
+  .main-content {
+    height: calc(100vh - 130px);
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-text h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkered-flag {
+    height: 18px;
+  }
+  
+  .checkered-row {
+    height: calc(18px / 3);
+  }
+  
+  .checkered-square {
+    min-width: 6px;
+  }
+  
+  .scrolling-text-bar {
+    height: 45px;
+  }
+  
+  .scrolling-item {
+    font-size: 0.9rem;
+    margin-right: 2.5rem;
+  }
+  
+  .main-content {
+    height: calc(100vh - 125px);
+  }
+  
+  #home-about {
+    padding: 2rem 1rem;
+    padding-top: calc(40px + 1rem);
+  }
+  
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .countdown-container {
+    max-width: 500px;
+  }
+  
+  .f1-timer-container {
+    max-width: 500px;
+  }
+  
+  .timer-screen {
+    padding: 3rem 2.5rem;
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    margin-top: 0;
+    padding-top: 0;
+    height: calc(100vh - 140px);
+    padding-bottom: 0;
+  }
+  
+  .left-section {
+    padding: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+  }
+  
+  .main-title {
+    font-size: 3.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.6rem;
+    transform: skewX(-6deg);
+  }
+  
+  .event-info {
+    font-size: 1.5rem;
+  }
+  
+  .location, .city {
+    font-size: 1.4rem;
+  }
+  
+  .right-section {
+    padding: 2rem;
+    min-height: auto;
+    margin-top: 0;
+    padding-top: 2rem;
+    height: auto;
+  }
+  
+  .countdown-container {
+    max-width: 400px;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .billetterie-btn-left {
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+  }
+  
+  .event-dates {
+    font-size: 1.3rem;
+  }
+  
+  .f1-timer-container {
+    max-width: 400px;
+  }
+  
+  .timer-screen {
+    padding: 2.5rem 2rem;
+    min-width: 400px;
+    border-width: 6px;
+  }
+  
+  .time-value {
+    font-size: 2.3rem;
+  }
+  
+  .time-separator {
+    font-size: 1.7rem;
+    margin: 0 0.3rem;
+  }
+  
+  .timer-display {
+    gap: 1.2rem;
+    flex-wrap: nowrap;
+  }
+  
+  .countdown-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-section {
+    padding: 1.5rem;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+    padding: 0.4rem 1.5rem;
+    transform: skewX(-4deg);
+  }
+  
+  .event-info {
+    font-size: 1.2rem;
+  }
+  
+  .location, .city {
+    font-size: 1.1rem;
+  }
+  
+  .event-dates {
+    font-size: 1.1rem;
+  }
+  
+  .f1-timer-container {
+    max-width: 380px;
+  }
+  
+  .timer-screen {
+    padding: 2rem 1.5rem;
+    border-width: 5px;
+    min-width: 320px;
+  }
+  
+  .time-value {
+    font-size: 1.6rem;
+  }
+  
+  .time-separator {
+    font-size: 1.2rem;
+    margin: 0 0.2rem;
+  }
+  
+  .timer-display {
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+  }
+  
+  .time-group {
+    min-width: 60px;
+  }
+  
+  .countdown-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .billetterie-btn-left {
+    margin-top: 1.3rem;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
+  
+  .countdown-container {
+    max-width: 350px;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .event-dates {
+    font-size: 1rem;
+  }
+  
+  .f1-timer-container {
+    max-width: 300px;
+  }
+  
+  .timer-screen {
+    padding: 1.8rem 1rem;
+    border-width: 4px;
+    border-radius: 20px;
+    min-width: 280px;
+  }
+  
+  .time-value {
+    font-size: 1.3rem;
+  }
+  
+  .time-separator {
+    font-size: 1rem;
+    margin: 0 0.1rem;
+  }
+  
+  .timer-display {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  
+  .time-group {
+    min-width: 45px;
+    flex-shrink: 0;
+  }
+  
+  .time-label {
+    font-size: 0.55rem;
+    margin-top: 0.2rem;
+  }
+  
+  .billetterie-btn-left {
+    margin-top: 1rem;
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .countdown-title {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .countdown-container {
+    max-width: 320px;
+    padding: 1.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .timer-screen {
+    min-width: 260px;
+    padding: 1.5rem 0.8rem;
+  }
+  
+  .time-value {
+    font-size: 1.1rem;
+  }
+  
+  .time-separator {
+    font-size: 0.8rem;
+  }
+  
+  .time-group {
+    min-width: 40px;
+  }
+  
+  .time-label {
+    font-size: 0.5rem;
+  }
+  
+  .timer-display {
+    gap: 0.4rem;
+  }
+  
+  .f1-timer-container {
+    max-width: 280px;
+  }
+  
+  .countdown-container {
+    max-width: 280px;
+  }
+  
+  .countdown-title {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   section carte
+======================================== */
+
+#home-carte {
+  padding: 5rem 2rem;
+  background-color: #ffffff;
+  position: relative;
+}
+
+#home-carte h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #000;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  border: 3px solid #E72D55;
+}
+
+.circuit-map {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.circuit-map:hover {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   responsive carte
+======================================== */
+
+@media (max-width: 1024px) {
+  #home-carte h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #home-carte {
+    padding: 3rem 1.5rem;
+  }
+  
+  #home-carte h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .map-container {
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  #home-carte {
+    padding: 2rem 1rem;
+  }
+  
+  #home-carte h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+html.dark-mode #home-carte {
+  background-color: #0a0a0a;
+}
+
+html.dark-mode #home-carte h1 {
+  color: #ffffff;
+}
+
+html.dark-mode .map-container {
+  border-color: #E72D55;
+  box-shadow: 0 8px 40px rgba(231, 45, 85, 0.3);
+}
+

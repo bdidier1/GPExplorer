@@ -1,0 +1,1540 @@
+openapi: 3.0.0
+info:
+  title: API Billetterie & Événement
+  version: 1.1.0
+  description: Documentation complète des routes API du projet GP Explorer
+  contact:
+    name: Support Technique
+servers:
+  - url: http://localhost:3001
+    description: Serveur local
+
+tags:
+  - name: Système
+    description: Santé et statut API
+  - name: Authentification
+    description: Login, refresh, register, logout et OAuth
+  - name: Billets
+    description: Catalogue et détails des billets
+  - name: Panier
+    description: Réservations temporaires de billets
+  - name: Commandes
+    description: Validation et historique des commandes
+  - name: Boutique
+    description: Produits boutique publics et prestataires
+  - name: Prestataires
+    description: Gestion des prestataires et données associées
+  - name: Carte
+    description: Emplacements et zones de la carte interactive
+  - name: Contenu
+    description: Contenu éditorial de la page d'accueil
+  - name: Statistiques
+    description: Endpoints statistiques administrateur
+  - name: Utilisateurs
+    description: Gestion administrative des utilisateurs
+  - name: Contact
+    description: Messages de contact
+  - name: Messages prestataires
+    description: Messagerie privée des prestataires
+  - name: Demandes carte
+    description: Workflow de demande d'emplacement carte
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ApiError:
+      type: object
+      properties:
+        error:
+          oneOf:
+            - type: integer
+            - type: string
+        message:
+          type: string
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        segment:
+          type: string
+        category:
+          type: string
+        variant:
+          type: string
+        price:
+          type: number
+        totalStock:
+          type: integer
+        sold:
+          type: integer
+        reserved:
+          type: integer
+        available:
+          type: integer
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum: [user, provider, organizer]
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        companyName:
+          type: string
+        category:
+          type: string
+        qrCodeId:
+          type: string
+        isActive:
+          type: boolean
+    ShopProduct:
+      type: object
+      properties:
+        id:
+          type: string
+        providerId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        price:
+          type: number
+        stock:
+          type: integer
+        sold:
+          type: integer
+        category:
+          type: string
+          nullable: true
+        image:
+          type: string
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+        isActive:
+          type: boolean
+    Provider:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        logo:
+          type: string
+        isActive:
+          type: boolean
+    MapLocation:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        providerId:
+          type: string
+          nullable: true
+        surface:
+          type: integer
+        hasElectricity:
+          type: boolean
+        hasWater:
+          type: boolean
+        zone:
+          type: string
+
+paths:
+  /api/health:
+    get:
+      tags: [Système]
+      summary: Vérifier l'état du serveur
+      responses:
+        '200':
+          description: Serveur opérationnel
+
+  /api/login:
+    post:
+      tags: [Authentification]
+      summary: Connexion utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Connexion réussie
+        '400':
+          description: Données manquantes
+        '401':
+          description: Identifiants invalides
+
+  /api/refresh:
+    post:
+      tags: [Authentification]
+      summary: Renouveler le JWT depuis refreshToken cookie
+      responses:
+        '200':
+          description: Token renouvelé
+        '401':
+          description: Refresh token manquant/invalide
+
+  /api/register:
+    post:
+      tags: [Authentification]
+      summary: Inscription utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, email, password, confirmPassword, firstName, lastName]
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                confirmPassword:
+                  type: string
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                phone:
+                  type: string
+                role:
+                  type: string
+                  enum: [user, provider, organizer]
+                companyName:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Compte créé
+        '400':
+          description: Validation invalide
+        '409':
+          description: Conflit utilisateur
+
+  /api/logout:
+    post:
+      tags: [Authentification]
+      summary: Déconnexion
+      responses:
+        '200':
+          description: Déconnexion réussie
+
+  /api/provider-invitations/setup-password:
+    post:
+      tags: [Authentification]
+      summary: Définir le mot de passe après invitation prestataire
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [token, password, confirmPassword]
+              properties:
+                token:
+                  type: string
+                  description: Jeton d'invitation reçu par email
+                password:
+                  type: string
+                  description: Nouveau mot de passe
+                confirmPassword:
+                  type: string
+                  description: Confirmation du nouveau mot de passe
+      responses:
+        '200':
+          description: Mot de passe défini avec succès
+        '400':
+          description: Données invalides ou token incorrect
+        '404':
+          description: Invitation introuvable
+        '410':
+          description: Invitation expirée
+
+  /api/auth/google:
+    get:
+      tags: [Authentification]
+      summary: Initier OAuth Google
+      responses:
+        '302':
+          description: Redirection vers Google
+
+  /api/auth/google/callback:
+    get:
+      tags: [Authentification]
+      summary: Callback OAuth Google
+      responses:
+        '302':
+          description: Redirection frontend avec token ou erreur
+
+  /api/auth/discord:
+    get:
+      tags: [Authentification]
+      summary: Initier OAuth Discord
+      responses:
+        '302':
+          description: Redirection vers Discord
+
+  /api/auth/discord/callback:
+    get:
+      tags: [Authentification]
+      summary: Callback OAuth Discord
+      responses:
+        '302':
+          description: Redirection frontend avec token ou erreur
+
+  /api/tickets:
+    get:
+      tags: [Billets]
+      summary: Lister les billets
+      responses:
+        '200':
+          description: Liste des billets
+
+  /api/tickets/{id}:
+    get:
+      tags: [Billets]
+      summary: Détail d'un billet
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Billet trouvé
+        '404':
+          description: Billet introuvable
+
+  /api/panier/reserver:
+    post:
+      tags: [Panier]
+      summary: Réserver temporairement des billets
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [items]
+              properties:
+                userId:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required: [ticketId, quantity]
+                    properties:
+                      ticketId:
+                        type: string
+                      quantity:
+                        type: integer
+      responses:
+        '200':
+          description: Réservation créée
+        '401':
+          description: Non authentifié
+        '409':
+          description: Stock insuffisant
+
+  /api/panier/annuler:
+    post:
+      tags: [Panier]
+      summary: Annuler une réservation temporaire
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [holdId]
+              properties:
+                holdId:
+                  type: string
+      responses:
+        '200':
+          description: Réservation annulée
+        '401':
+          description: Non authentifié
+        '404':
+          description: Réservation introuvable/expirée
+
+  /api/orders/save:
+    post:
+      tags: [Commandes]
+      summary: Confirmer et enregistrer une commande
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, tickets]
+              properties:
+                userId:
+                  type: string
+                email:
+                  type: string
+                holdId:
+                  type: string
+                tickets:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ticketId:
+                        type: string
+                      quantity:
+                        type: integer
+      responses:
+        '200':
+          description: Commande sauvegardée
+        '401':
+          description: Non authentifié
+
+  /api/orders/user/{userId}:
+    get:
+      tags: [Commandes]
+      summary: Historique des commandes utilisateur
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Liste des commandes
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/shop/products:
+    get:
+      tags: [Boutique]
+      summary: Lister les produits boutique publics
+      responses:
+        '200':
+          description: Produits récupérés
+
+  /api/shop/products/{id}:
+    get:
+      tags: [Boutique]
+      summary: Détail d'un produit boutique
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Produit trouvé
+        '404':
+          description: Produit introuvable
+
+  /api/providers:
+    get:
+      tags: [Prestataires]
+      summary: Lister les prestataires
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+        - in: query
+          name: search
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Liste des prestataires
+    post:
+      tags: [Prestataires]
+      summary: Créer un prestataire
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userId, name, category]
+              properties:
+                userId:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+                category:
+                  type: string
+                logo:
+                  type: string
+      responses:
+        '200':
+          description: Prestataire créé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/providers/{id}:
+    get:
+      tags: [Prestataires]
+      summary: Détail d'un prestataire
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Prestataire trouvé
+        '404':
+          description: Prestataire introuvable
+    put:
+      tags: [Prestataires]
+      summary: Modifier un prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                htmlContent:
+                  type: string
+      responses:
+        '200':
+          description: Prestataire mis à jour
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+    delete:
+      tags: [Prestataires]
+      summary: Supprimer un prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Prestataire supprimé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+        '404':
+          description: Prestataire introuvable
+
+  /api/providers/me/profile:
+    put:
+      tags: [Prestataires]
+      summary: Mettre à jour son profil prestataire
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                description:
+                  type: string
+                logo:
+                  type: string
+      responses:
+        '200':
+          description: Profil mis à jour
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/providers/{providerId}/products:
+    get:
+      tags: [Boutique]
+      summary: Lister les produits d'un prestataire
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Produits du prestataire
+    post:
+      tags: [Boutique]
+      summary: Créer un produit prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, price]
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: integer
+                category:
+                  type: string
+                image:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Produit créé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/providers/{providerId}/products/{productId}:
+    put:
+      tags: [Boutique]
+      summary: Modifier un produit prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: integer
+                category:
+                  type: string
+                image:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+                isActive:
+                  type: boolean
+      responses:
+        '200':
+          description: Produit modifié
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+        '404':
+          description: Produit introuvable
+    delete:
+      tags: [Boutique]
+      summary: Supprimer un produit prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Produit supprimé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+        '404':
+          description: Produit introuvable
+
+  /api/providers/{providerId}/guestbook:
+    get:
+      tags: [Prestataires]
+      summary: Lister les entrées du livre d'or
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: all
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Entrées récupérées
+    post:
+      tags: [Prestataires]
+      summary: Ajouter une entrée au livre d'or
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [authorName, message]
+              properties:
+                authorName:
+                  type: string
+                authorEmail:
+                  type: string
+                message:
+                  type: string
+                rating:
+                  type: integer
+      responses:
+        '200':
+          description: Entrée ajoutée
+
+  /api/providers/{providerId}/guestbook/{entryId}:
+    delete:
+      tags: [Prestataires]
+      summary: Supprimer une entrée du livre d'or
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: entryId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Entrée supprimée
+        '401':
+          description: Non authentifié
+
+  /api/providers/{providerId}/visitors:
+    post:
+      tags: [Prestataires]
+      summary: Incrémenter le compteur visiteurs d'un prestataire
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Compteur incrémenté
+
+  /api/providers/{providerId}/visitors/stats:
+    get:
+      tags: [Prestataires]
+      summary: Statistiques visiteurs d'un prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: providerId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Statistiques visiteurs
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/providers/{id}/messages:
+    post:
+      tags: [Messages prestataires]
+      summary: Envoyer un message à un prestataire
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Message envoyé
+    get:
+      tags: [Messages prestataires]
+      summary: Lister les messages d'un prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Messages récupérés
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/providers/{id}/messages/unread-count:
+    get:
+      tags: [Messages prestataires]
+      summary: Compter les messages non lus d'un prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Nombre de messages non lus
+
+  /api/providers/{id}/messages/{msgId}/read:
+    patch:
+      tags: [Messages prestataires]
+      summary: Marquer un message prestataire comme lu
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: msgId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message marqué comme lu
+
+  /api/providers/{id}/messages/{msgId}:
+    delete:
+      tags: [Messages prestataires]
+      summary: Supprimer un message prestataire
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: msgId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message supprimé
+
+  /api/map/locations:
+    get:
+      tags: [Carte]
+      summary: Lister les emplacements carte
+      responses:
+        '200':
+          description: Emplacements récupérés
+    post:
+      tags: [Carte]
+      summary: Créer un emplacement carte
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Emplacement créé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/map/locations/free:
+    get:
+      tags: [Carte]
+      summary: Lister les emplacements libres
+      responses:
+        '200':
+          description: Emplacements libres
+
+  /api/map/locations/{id}:
+    get:
+      tags: [Carte]
+      summary: Détail d'un emplacement
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Emplacement trouvé
+        '404':
+          description: Emplacement introuvable
+    put:
+      tags: [Carte]
+      summary: Modifier un emplacement
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Emplacement modifié
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+    delete:
+      tags: [Carte]
+      summary: Supprimer un emplacement
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Emplacement supprimé
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/map/locations/{id}/assign:
+    put:
+      tags: [Carte]
+      summary: Assigner/libérer un prestataire sur un emplacement
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providerId:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Affectation mise à jour
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/map/locations/swap:
+    post:
+      tags: [Carte]
+      summary: Échanger deux affectations de prestataires
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [locationId1, locationId2]
+              properties:
+                locationId1:
+                  type: string
+                locationId2:
+                  type: string
+      responses:
+        '200':
+          description: Échange effectué
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/map/zones/{zone}:
+    get:
+      tags: [Carte]
+      summary: Lister les emplacements d'une zone
+      parameters:
+        - in: path
+          name: zone
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Emplacements de zone
+
+  /api/map-requests:
+    post:
+      tags: [Demandes carte]
+      summary: Soumettre une demande d'emplacement
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Demande créée
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/map-requests/my:
+    get:
+      tags: [Demandes carte]
+      summary: Voir sa demande d'emplacement
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Demande récupérée
+    delete:
+      tags: [Demandes carte]
+      summary: Supprimer sa demande en attente
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Demandes en attente supprimées
+
+  /api/admin/map-requests:
+    get:
+      tags: [Demandes carte]
+      summary: Lister toutes les demandes d'emplacement
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Liste des demandes
+
+  /api/admin/map-requests/{id}/approve:
+    patch:
+      tags: [Demandes carte]
+      summary: Approuver une demande d'emplacement
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Demande approuvée
+
+  /api/admin/map-requests/{id}/reject:
+    patch:
+      tags: [Demandes carte]
+      summary: Rejeter une demande d'emplacement
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Demande rejetée
+
+  /api/home-content:
+    get:
+      tags: [Contenu]
+      summary: Récupérer tout le contenu de la page d'accueil
+      responses:
+        '200':
+          description: Contenu multilingue
+    post:
+      tags: [Contenu]
+      summary: Mettre à jour le contenu de la page d'accueil
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                title:
+                  type: string
+                htmlContent:
+                  type: string
+                imageUrl:
+                  type: string
+      responses:
+        '200':
+          description: Contenu mis à jour
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/home-content/{language}:
+    get:
+      tags: [Contenu]
+      summary: Récupérer le contenu d'une langue
+      parameters:
+        - in: path
+          name: language
+          required: true
+          schema:
+            type: string
+            enum: [fr, en, es]
+      responses:
+        '200':
+          description: Contenu de langue
+
+  /api/admin/stats/dashboard:
+    get:
+      tags: [Statistiques]
+      summary: Résumé dashboard admin
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Statistiques dashboard
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/admin/stats/stock:
+    get:
+      tags: [Statistiques]
+      summary: Statistiques de stock
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Statistiques stock
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/admin/stats/visitors:
+    get:
+      tags: [Statistiques]
+      summary: Statistiques visiteurs par prestataire
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Statistiques visiteurs
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+
+  /api/users/me:
+    get:
+      tags: [Utilisateurs]
+      summary: Récupérer le profil de l'utilisateur connecté
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Profil récupéré
+        '401':
+          description: Non authentifié
+        '500':
+          description: Erreur serveur
+    put:
+      tags: [Utilisateurs]
+      summary: Mettre à jour le profil de l'utilisateur connecté
+      description: Permet de modifier username, prénom, nom, email, téléphone, et de changer le mot de passe en fournissant currentPassword et newPassword.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  minLength: 3
+                  maxLength: 50
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                phone:
+                  type: string
+                currentPassword:
+                  type: string
+                newPassword:
+                  type: string
+                  minLength: 6
+      responses:
+        '200':
+          description: Profil mis à jour
+        '400':
+          description: Données invalides ou mot de passe actuel incorrect
+        '401':
+          description: Non authentifié
+        '404':
+          description: Utilisateur introuvable
+        '409':
+          description: Email ou username déjà utilisé
+        '500':
+          description: Erreur serveur
+
+  /api/users:
+    get:
+      tags: [Utilisateurs]
+      summary: Lister les utilisateurs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: role
+          schema:
+            type: string
+            enum: [user, provider, organizer]
+        - in: query
+          name: search
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Utilisateurs récupérés
+        '401':
+          description: Non authentifié
+        '403':
+          description: Accès refusé
+    post:
+      tags: [Utilisateurs]
+      summary: Créer un utilisateur
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, email, password]
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                role:
+                  type: string
+                  enum: [user, provider, organizer]
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                phone:
+                  type: string
+                companyName:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Utilisateur créé
+
+  /api/users/{id}:
+    get:
+      tags: [Utilisateurs]
+      summary: Récupérer un utilisateur
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Utilisateur trouvé
+        '404':
+          description: Utilisateur introuvable
+    put:
+      tags: [Utilisateurs]
+      summary: Mettre à jour un utilisateur
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Utilisateur mis à jour
+    delete:
+      tags: [Utilisateurs]
+      summary: Désactiver un utilisateur
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Utilisateur désactivé
+
+  /api/contact:
+    post:
+      tags: [Contact]
+      summary: Envoyer un message de contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Message envoyé
+
+  /api/admin/messages:
+    get:
+      tags: [Contact]
+      summary: Lister les messages de contact (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Messages récupérés
+
+  /api/admin/messages/unread-count:
+    get:
+      tags: [Contact]
+      summary: Compter les messages de contact non lus
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Nombre de messages non lus
+
+  /api/admin/messages/{id}/read:
+    patch:
+      tags: [Contact]
+      summary: Marquer un message de contact comme lu
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message marqué lu
+
+  /api/admin/messages/{id}:
+    delete:
+      tags: [Contact]
+      summary: Supprimer un message de contact
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message supprimé
