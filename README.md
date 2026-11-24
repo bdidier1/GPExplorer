@@ -1,13 +1,19 @@
-# SAE_S3-S4
+# GP Explorer
 
-Système de gestion événementielle pour le GP Explorer - Projet SAE S3-S4 BUT Informatique
+Le site complet d'un grand événement de course au circuit Bugatti du Mans : billetterie, boutique, carte interactive du circuit, espaces prestataire et administrateur.
 
-### Membres:
-- LAFAY Mehdi
-- DIDIER Baptiste
-- LORENZINI Thomas
-- DUARTE Antoine
-- BELEY Gauthier
+Projet de 2<sup>e</sup> année de BUT Informatique (SAÉ S3-S4, septembre 2025 – mars 2026), mené en méthode agile par une équipe de 5 : Mehdi Lafay, Baptiste Didier, Thomas Lorenzini, Antoine Duarte et Gauthier Beley.
+
+## Fonctionnalités
+
+- Billetterie par expérience (pass festival, karting, simulateurs, concerts…), boutique et panier
+- Carte interactive du circuit avec ses parkings et son camping (Leaflet)
+- Espace administrateur : services, boutique, utilisateurs, messages, carte et contenu de l'accueil
+- Espace prestataire : produits, compte et statistiques de ventes
+- Tableaux de bord (Chart.js), QR codes générés et lus dans le navigateur
+- Connexion par identifiant ou par Discord, site en trois langues (FR, EN, ES)
+
+Côté serveur : une API Express de 74 routes documentée avec Swagger, 16 modèles Sequelize sur PostgreSQL, et des droits vérifiés à chaque requête (jetons JWT, rôles, propriété des données).
 
 ## 🚀 Installation et lancement
 
@@ -103,6 +109,6 @@ Pour tester les différents rôles de l'application :
 
 ## 🛠️ Technologies utilisées
 
-- **Backend**: Node.js, Express, Sequelize, SQLite/PostgreSQL
-- **Frontend**: Vue.js 3, Vite, Pinia, Vue Router
+- **Backend**: Node.js, Express, Sequelize, PostgreSQL
+- **Frontend**: Vue.js 3, Vite, Pinia, Vue Router, Leaflet, Chart.js
 - **Documentation**: LaTeX
