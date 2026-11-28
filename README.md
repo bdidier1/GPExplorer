@@ -4,6 +4,12 @@ Le site complet d'un grand événement de course au circuit Bugatti du Mans : bi
 
 Projet de 2<sup>e</sup> année de BUT Informatique (SAÉ S3-S4, septembre 2025 – mars 2026), mené en méthode agile par une équipe de 5 : Mehdi Lafay, Baptiste Didier, Thomas Lorenzini, Antoine Duarte et Gauthier Beley.
 
+![Page d'accueil de GP Explorer](docs/gp-explorer.webp)
+
+| La billetterie | La carte interactive du circuit | Les statistiques |
+| :---: | :---: | :---: |
+| ![Billetterie](docs/gp-explorer-tickets.webp) | ![Carte du circuit](docs/gp-explorer-map.webp) | ![Tableau de bord](docs/gp-explorer-stats.webp) |
+
 ## Fonctionnalités
 
 - Billetterie par expérience (pass festival, karting, simulateurs, concerts…), boutique et panier
@@ -14,6 +20,10 @@ Projet de 2<sup>e</sup> année de BUT Informatique (SAÉ S3-S4, septembre 2025 �
 - Connexion par identifiant ou par Discord, site en trois langues (FR, EN, ES)
 
 Côté serveur : une API Express de 74 routes documentée avec Swagger, 16 modèles Sequelize sur PostgreSQL, et des droits vérifiés à chaque requête (jetons JWT, rôles, propriété des données).
+
+## Mon rôle (Baptiste Didier)
+
+Développement de l'API (serveur Express) et du front (interface Vue.js). Le défi : avancer à cinq sur le même code pendant plusieurs mois, en découpant le travail en itérations courtes pour ne pas se marcher dessus.
 
 ## 🚀 Installation et lancement
 
@@ -112,3 +122,7 @@ Pour tester les différents rôles de l'application :
 - **Backend**: Node.js, Express, Sequelize, PostgreSQL
 - **Frontend**: Vue.js 3, Vite, Pinia, Vue Router, Leaflet, Chart.js
 - **Documentation**: LaTeX
+
+---
+
+Le détail du projet, avec d'autres captures, est aussi présenté sur mon [portfolio](https://bdidier1.github.io/Portfolio_BUT3/?vue=classique#projets).
